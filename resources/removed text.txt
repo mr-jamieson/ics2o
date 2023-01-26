@@ -1,0 +1,171 @@
+<li>A student is a person and so is an employee. Create a <strong>Person</strong> class that has the data attributes common to both students and employees (name, SIN,
+  age, gender, address, telephone number) and appropriate method definitions. A <strong>Student</strong> has a grade-point average (GPA), major, and year of graduation.
+  An <strong>Employee</strong> has a department, job classification, and year of hire. In addition there are <strong>Hourly Employees</strong> (hourly rate, hours worked,
+  and union dues) and <strong>Salaried Employees</strong> (annual salary.)
+  <p><strong>Create</strong> a class hierarchy for an educational institution and write a <strong>SchoolInformation</strong> application class that you can use to first
+    store data for 5 people and then display that information in a meaningful way.</p>
+  <p>It is up to you if you will create a graphical or a text-based interface for this activity, but keep in mind that <em>you will be building on this activity later in
+      the course</em>
+    <p>
+</li>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<li>Create a <strong>Tetris</strong> application program which will allow the user to use the mouse to place randomly selected tetris blocks on a the screen. These are the tetris blocks:</li>
+
+<table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+<tbody>
+  <tr>
+    <th><img src="images/A7TetrisBlocks.png" /></th>
+    <td>
+      <p>There are <strong>seven</strong> different blocks, in four different groups or classes.</p>
+      <p>Some blocks can be turned (oriented) in two ways, other in four ways. They all have a <strong>location</strong> (top left corner: x, y), <strong>color</strong> and <strong>orientation</strong>.</p>
+      <p>Some also have an <strong>offset</strong> property (to distinguish the various blocks within the two & two or three & one groups).</p>
+    </td>
+  </tr>
+</tbody>
+</table>
+
+<p><strong>TetrisBlock</strong> is the abstract superclass of this group of classes. It is a subclass of the <strong>Parent</strong> class in JavaFX. It has protected data fields for <strong>x, y, orientation</strong> and <strong>color</strong>, and a public constant for the <strong>size</strong> of an individual square (25). Its <strong>constructor</strong> will set orientation to zero and set the color to a random color. A <strong>setLocation</strong> method will set x and y to given values. <strong>draw</strong> and <strong>toString</strong> methods are abstract.</p>
+<p><strong>SquareBlock</strong> is a subclass of TetrisBlock. It has no fields and defines those methods necessary to make it concrete.</p>
+<p><strong>LineBlock</strong> is a subclass of TetrisBlock. It has no fields and defines those methods necessary to make it concrete. It also implements the interface <strong>Orientable</strong> (this interface has a single method: <strong>setOrientation</strong> which will set the orientation to a given value). Its <strong>constructor</strong> will be given an orientation and it will call setOrientation.</p>
+<p><strong>OffsetBlock</strong> is a subclass of TetrisBlock. It has an <strong>offset</strong> field. Its <strong>constructor</strong> will set its offset. It is an abstract class as it does not override any methods of its super class.</p>
+<p><strong>TwoAndTwoBlock</strong> is a subclass of OffsetBlock and implements <strong>Orientable</strong>. Its <strong>constructor</strong> will be given an orientation and offset. It defines those methods necessary to make it concrete.</p>
+<p><strong>ThreeAndOneBlock</strong> is the same idea as TwoAndTwoBlock.</p>
+
+<ol>
+  <li>Create a <strong>UML diagram</strong> to describe the class hierarchy described above</li>
+  <li>Create the <strong>SIX Java Classes &amp; ONE Interface</strong> to fully implement this hierarchy</li>
+  <li><strong>Complete the code</strong> of the main class, shown below, to test your classes</li>
+</ol>
+
+<p>A partial implementation of the <strong>Tetris</strong> class is provided. You must complete the <strong>placeBlock</strong> method and implement the <strong>getBlock</strong> method:</p>
+<pre class=code>package activity7;
+
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class Tetris extends Application {
+
+public static final int SCREEN_WIDTH = 800;
+public static final int SCREEN_HEIGHT = 600;
+
+Group root;
+TetrisBlock block;
+Text upcoming;
+
+@Override
+public void start(Stage myStage) throws Exception {
+
+  root = new Group();
+  Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+  block = getBlock();
+
+  upcoming = new Text(5, 15, block.toString());
+  root.getChildren().add(upcoming);
+
+  scene.setOnMouseClicked(event -> placeBlock(event));
+
+  myStage.setTitle("Tetris");
+  myStage.setScene(scene);
+  myStage.show();
+
+}
+
+private void placeBlock(MouseEvent event) {
+
+  //snap block to grid
+  int X = ((int) event.getX() / TetrisBlock.SIZE) * TetrisBlock.SIZE;
+  int Y = ((int) event.getY() / TetrisBlock.SIZE) * TetrisBlock.SIZE;
+
+  //TODO: set the location to X and Y and draw the block.
+
+  //TODO: get a new block and display its description in the Text object
+
+}
+
+private TetrisBlock getBlock() {
+  // TODO: Implement method to create a block at random and add to the scene graph
+  return null;
+}
+
+public static void main(String[] args) {
+  launch(args);
+}
+
+}
+</pre>
+
+<p><strong>BUMP IT UP!</strong> In order to achieve a mark of level 4 on this question, your program must improve upon this program in a significant way.</p>
+</ol>
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<li>
+  <p>In Unit 1, Activity 6, you created a class hierarchy for an educational institution, consisting of <strong>Students</strong> and <strong>Employees</strong>.</p>
+  <p>Create a <strong>EmployeeDatabase</strong> application that can be used to keep track of both types of Employees (Salaried and Hourly) and then
+    <strong>display</strong> that information in a meaningful way. Your application must be able to <strong>add</strong> and <strong>remove</strong> employees as needed.
+  </p>
+</li>
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<li>Modify your <b>SchoolInformation</b> program from Unit 1, Activity 6 to save its data to an XML file, and load the data from an XML file when the program
+  starts.<br /><br />
+  Your program should store the information in <b>Person</b> objects (in an <b>ArrayList</b>) while the program is running, and allow the user to view and modify student
+  or employee data.<br /><br />
+  If the program is started for the first time and no file exists, your program must create the file.</li>
+
+  ------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+        <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 1 &ndash; Casting between Variables</h4>
+
+        <p>Create a new application called CastingExample.</p>
+
+        <p>Enter the following code in the main method.</p>
+
+        <pre class="code">
+      String aString = &quot;100&quot;;
+      String bString = &quot;99.999&quot;;
+      double cDouble = 7.785;
+
+      int aInteger = Integer.parseInt(aString);
+      double aDouble = (double) aInteger;
+
+      double bDouble = Double.parseDouble(bString);
+      int bInteger = (int)bDouble;
+
+      String cString = Double.toString(cDouble);
+      int cInteger = (int)Math.round(cDouble);
+
+      Console.print(&quot;This is the first String: &quot; + aString);
+      Console.print(&quot;This is an integer from the first String: &quot; + aInteger);
+      Console.print(&quot;This is a double from the casted integer: &quot; + aDouble + "\n");
+
+      Console.print(&quot;This is the second String: &quot; + bString);
+      Console.print(&quot;This is a double variable from the second String: &quot; + bDouble);
+      Console.print(&quot;This is an integer from the casted double: &quot; + bInteger  + "\n");
+
+      Console.print(&quot;This is the first Double: &quot; + cDouble);
+      Console.print(&quot;This is the Double converted to a String: &quot; + cString);
+      Console.print(&quot;This is an integer from the rounded double: &quot; + cInteger + "\n");
+  </pre>
+
+        <p>Run the program to see the effects of casting between variables.</p>
+
+        <h4><img alt="Tips icon" src="../resources/images/tips.gif" style="width: 42px; height: 42px;" /> Tip</h4>
+
+        <blockquote>
+          <p>When decreasing the precision of a number, it is better to use rounding. The Math.round() method will round a number with a decimal portion greater than or equal to 0.5
+            up to the next integer, and a number with a decimal portion less than 0.5 will be rounded down. Note that the Math.round() methods returns a long, which we have cast to
+            an int in the above example.</p>
+        </blockquote>

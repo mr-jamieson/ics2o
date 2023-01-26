@@ -1,0 +1,370 @@
+	<li>Create a <strong>SchoolLocker</strong> application that simulates the opening and closing of a lock typically found on a school locker.
+	<br />
+	A locker is secured with a <strong>PadLock</strong>, of which there are 2 types: <strong>CombinationLock</strong> and <strong>KeyLock</strong>. A There are 2 types of Combination Locks: <strong>NumericComboLock</strong> (requires 3 separate numbers between 1-60) and <strong>AlphaComboLock</strong>, (requires a 5-letter word - assume any combination of characters is possible.) A CombinationLock can be unlocked by entering the correct sequence of numbers or letters in the <strong>unlock()</strong> method, while a <strong>KeyLock</strong> requires the correct key code (alphanumeric characters such as W123).
+	<table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+		<tbody>
+			<tr>
+				<th><img alt="This is a picture of a combination lock." class="middle" src="images/A6ComboLock.gif" /> <span class="caption"> </span></th>
+				<td>
+				<p>Using OOP, design an <strong>inheritance hierarchy</strong> to model this situation. Consider what data fields and methods would be required in each class. Would you use an abstract class? An interface?<br /><br />
+				Consider where in the inheritance hierarchy each of these instance members belong:</p>
+				<ul>
+					<li>private boolean isOpen</li>
+					<li>private String alphaCode</li>
+					<li>private String keyCode</li>
+					<li>private int firstNumber</li>
+					<li>private int secondNumber</li>
+					<li>private int thirdNumber</li>
+					<li>private boolean checkCombo(int num1, int num2, int num3)</li>
+					<li>public boolean unlock(String code)</li>
+					<li>public void closeLock()</li> 
+					<li>public String getCombo()</li>
+					<li>public String getKeyCode()</li>
+				</ul>
+				
+				<p>Next, create a <strong>SchoolLocker</strong> application program</strong> that will:</p>
+				<ul>
+					<li>Ask the user what type of lock they have and the pertinent unlocking information.</li>
+					<li>Instantiate a lock of the correct type</li>
+					<li>Simulate a user trying to open the lock by asking for each number, one at a time;</li>
+					<li>Open the lock if the numbers match the combination;</li>
+					<li>Output a message to the user if the information is incorrect;</li>
+				</ul>
+				
+				<p>It is up to you if you will create a graphical or a text-based interface for this activity. </p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	</li>
+	
+	
+	
+	
+	
+	Create an abstract <strong>Vehicle</strong> class that contains the basic methods and properties of any vehicle (car, truck, motorcycle, bus, airplane, etc), such as the fuel tank size, the amount of fuel available, fuel efficiency, and the distance travelled.</p> 
+	
+	<p>You should be able to fill your tank with gas, drive the vehicle a specified distance, and query how much fuel is left and how much farther the vehicle can travel on the current amount of fuel.</p>
+	
+	<p>Some vehicles are used for commercial purposes, so they must include the number of passengers and the passenger fare as well. If a vehicle takes passengers, it should implement a <strong>CommercialVehicle</strong> interface that contains abstract methods to calculate the <strong>Profit</strong> (Revenue - Costs) associated with the vehicle, given the current cost of fuel.</p>
+	
+	<p>Create a <strong>class hierarchy</strong> to represent this situation. Use this table the following fuel efficiencies to design your subclasses.
+	<table cellpadding="6" cellspacing="0" border=1 class="CenterTable" summary="This table is for formatting purposes.">
+		<tbody>
+			<tr>
+				<td>Car</td>
+				<td>9.4 L / 100 KM</td>
+			</tr>
+			<tr>
+				<td>Truck</td>
+				<td>14.1 L / 100 KM</td>
+			</tr>
+			<tr>
+				<td>Motorcycle</td>
+				<td>6.3 L / 100 KM</td>
+			</tr>	
+			<tr>
+				<td>City Bus</td>
+				<td>78.4 L / 100 KM </td>
+			</tr>
+			<tr>
+				<td>Airplane</td>
+				<td>385 L / 100 KM</td>
+			</tr>
+		</tbody>
+	</table>
+	</p>	
+
+	<p>Create a <strong>TripPlanner</strong> application that could be used to plan a trip. The user will enter the distance needed to travel, and the current cost of fuel. They will be able to select their mode of transportation and the program will determine the cost of the trip. If they select a passenger vehicle, the program will display their fare, and also calculate the profit made by the vehicle, assuming the vehicle is full of paying passengers.</p>
+	<p><strong>You application MUST be a GUI using JavaFX</strong>. Think carefully about which layouts and controls will be best to create the interface</p>
+	<strong>BUMP IT UP!</strong> In order to achieve a mark of level 4 on this question, your program must improve upon this program in a significant way.
+
+	
+	
+	
+	<h4>Creating new XML Data in Java</h4>
+
+<p>You can use Java to create an XML Document as well.  This will require the use of some packages that are included in the standard Java runtime environments</p>
+
+<h5> <img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example  </h5>
+
+<p>The following code demonstrates how to create an XML file using the classes in the <b>javax.xml</b> and <b>org.w3c.dom</b> packages. Copy and paste this into Eclipse and run it to observe the results.</p>
+ 
+<pre class=code>package activity5;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class XMLCreate {
+
+    Document XMLDoc;
+
+    public static void main(String[] args) {
+        String filename = "res/studentInfo.xml";
+
+        try {
+            XMLCreate create = new XMLCreate();
+
+            create.addXMLElement("George", "1234 Main Street");
+            create.addXMLElement("Harold", "1520 Vine Street");
+
+            create.saveToFile(filename);
+
+        } catch (Exception exception) {
+            System.err.println("Error: " + exception.getMessage());
+        }
+
+    }
+
+    public XMLCreate() throws Exception {
+
+        // Create the XML Document for editing
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        XMLDoc = docBuilder.newDocument();
+
+        // create root element: class
+        Element rootElement = XMLDoc.createElement("class");
+        XMLDoc.appendChild(rootElement); 
+
+    }
+
+    private void addXMLElement(String nameStr, String addressStr) {
+        // student element
+        Element student = XMLDoc.createElement("student");
+
+        Element name = XMLDoc.createElement("name");
+        name.appendChild(XMLDoc.createTextNode(nameStr));
+        student.appendChild(name);
+
+        Element address = XMLDoc.createElement("address");
+        address.appendChild(XMLDoc.createTextNode(addressStr));
+        student.appendChild(address);
+
+        // add student to the class
+        Element root = XMLDoc.getDocumentElement();
+        root.appendChild(student);
+
+    }
+
+    private void saveToFile(String filename) throws Exception {
+        // write the content into xml file
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        
+        DOMSource source = new DOMSource(XMLDoc);
+        StreamResult result = new StreamResult(new File(filename));
+        
+        transformer.transform(source, result);
+    }
+}
+</pre>
+
+<h5> <img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" /> Check Your Understanding </h5>
+
+<div class="questions">
+    <ol>
+        <li>What does the Document object do?</li>
+        <li>What is the command to insert an element?</li>
+        <li>How is the information written to a file?</li>
+    </ol>
+<a href="answers/A5answer_1.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" />Answer</a> <br />
+
+</div>
+
+<br />
+<table class="externallink">
+    <tbody>
+        <tr>
+            <th><img alt="external link icon" class="icon" src="../resources/images/external_links.gif" /></th>
+            <td>
+            <p>To leave more about the DOM (Document Object Model), check out <a href="https://www.w3schools.com/xml/dom_intro.asp" target=_blank>this tutorial</a></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h4>Modifying XML Data  </h4>
+
+<p>To modify XML data, you must first read in an existing XML file. You can then use the Document object to get elements and modify them as needed.</p>
+
+<h5> <img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example  </h5>
+
+<p>The following code demonstrates how to modify an existing XML file using the classes in the <b>javax.xml</b> and <b>org.w3c.dom</b> packages. Copy and paste this into Eclipse and run it to observe the results.</p>
+
+<pre class=code>package activity5;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+
+public class XMLModify {
+
+    Document XMLDoc;
+
+    public static void main(String[] args) {
+        String filename = "res/information.xml";
+
+        try {
+            XMLModify modify = new XMLModify(filename);
+
+            modify.makeChanges();
+
+            modify.saveToFile(filename);
+
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+    }
+
+    public XMLModify(String filename) throws Exception {
+        DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+        XMLDoc = docBuilder.parse(filename);
+    }
+
+    private void makeChanges() {
+        // Get the student element by tag name directly
+        Node student = XMLDoc.getElementsByTagName("student").item(0);
+
+        // append a new node to first student
+        Element dateOfBirth = XMLDoc.createElement("dateofbirth");
+        dateOfBirth.appendChild(XMLDoc.createTextNode("12/11/1992"));
+        student.appendChild(dateOfBirth);
+
+        // append a new node to second student
+        Node Student1 = XMLDoc.getElementsByTagName("student").item(1);
+        Element dateOfBirth1 = XMLDoc.createElement("dateofbirth");
+        dateOfBirth1.appendChild(XMLDoc.createTextNode("01/01/1993"));
+        Student1.appendChild(dateOfBirth1);
+
+        // change the name of the first student
+        Node a = XMLDoc.getElementsByTagName("name").item(0);
+        a.setTextContent("Susan");
+
+    }
+
+    private void saveToFile(String filename) throws Exception {
+        // write the content into xml file
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = transformerFactory.newTransformer();
+        
+        DOMSource source = new DOMSource(XMLDoc);
+        StreamResult result = new StreamResult(new File(filename));
+        
+        transformer.transform(source, result);
+    }
+}
+</pre>
+
+<h5> <img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" /> Check Your Understanding </h5>
+
+<div class="questions">
+    <ol>
+        <li>What does the Node function do?  </li>
+        <li>What is the difference between item(0) and item(1)?  </li>
+        <li>What is a tagname?  </li>
+        <li>What is the command to change information in an element?  </li>
+    </ol>
+    <a href="answers/A5answer_2.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" />Answer</a> <br />
+</div>
+
+<h4>  Reading and Writing an XML file to the Screen   </h4>
+ 
+<h5> <img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example  </h5>
+ 
+ <p>The following code demonstrates how to read an XML file and output the information it contains to the screen. Copy and paste this into Eclipse and run it to observe the results. You will need to pay close attention to the use of <a href="https://docs.oracle.com/javase/8/docs/api/org/w3c/dom/Element.html" target="_blank">Elements</a> and <a href="https://docs.oracle.com/javase/8/docs/api/org/w3c/dom/NodeList.html" target="_blank">NodeLists</a></p>
+ 
+<pre class=code>package activity5;
+
+import java.io.File;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+public class XMLReader {
+
+    Document XMLDoc;
+
+    public static void main(String[] args) {
+
+        String filename = "res/book.xml";
+
+        try {
+            XMLReader reader = new XMLReader(filename);
+
+            reader.displayInfo();
+
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
+    }
+
+    public XMLReader(String filename) throws Exception {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        XMLDoc = db.parse(new File(filename));
+        XMLDoc.getDocumentElement().normalize();
+
+    }
+
+    private void displayInfo() {
+        System.out.println("Root element of the doc is " + XMLDoc.getDocumentElement().getNodeName());
+
+        NodeList listOfPersons = XMLDoc.getElementsByTagName("person");
+        int totalPersons = listOfPersons.getLength();
+
+        System.out.println("Total number of people: " + totalPersons);
+
+        for (int s = 0; s &lt; listOfPersons.getLength(); s++) {
+            Node firstPersonNode = listOfPersons.item(s);
+            if (firstPersonNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element firstPersonElement = (Element) firstPersonNode;
+
+                NodeList firstNameList = firstPersonElement.getElementsByTagName("first");
+                Element firstNameElement = (Element) firstNameList.item(0);
+                NodeList textFNList = firstNameElement.getChildNodes();
+                System.out.println("First Name: " + ((Node) textFNList.item(0)).getNodeValue().trim());
+
+                NodeList lastNameList = firstPersonElement.getElementsByTagName("last");
+                Element lastNameElement = (Element) lastNameList.item(0);
+                NodeList textLNList = lastNameElement.getChildNodes();
+                System.out.println("Last Name: " + ((Node) textLNList.item(0)).getNodeValue().trim());
+
+                NodeList ageList = firstPersonElement.getElementsByTagName("age");
+                Element ageElement = (Element) ageList.item(0);
+                NodeList textAgeList = ageElement.getChildNodes();
+                System.out.println("Age: " + ((Node) textAgeList.item(0)).getNodeValue().trim());
+
+            }
+        }
+    }
+
+}
+</pre>
+	

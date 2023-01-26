@@ -1,0 +1,351 @@
+body
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12pt;
+	text-align:center;
+	background-position:bottom;
+	background-repeat:repeat-x;
+	background-attachment:fixed;
+}
+
+h1
+{
+	color: #000000;
+	font-size: 16pt;
+	font-weight:bold
+}
+
+h2
+{
+	color: #000000;
+	font-size: 20pt;
+	margin-top: -5px;
+	font-weight:bold
+}
+
+h3
+{
+	color: #000000;
+	font-size: 18pt;
+	margin-bottom: -5px;
+	font-weight:bold;
+}
+
+h4
+{
+	color: #000000;
+	font-size: 16pt;
+	font-weight:bold;
+}
+
+h5
+{
+	color: #555555;
+	font-size: 14pt;
+	font-weight:bold;
+}
+
+h6
+{
+	color: #000000;
+	font-size: 12pt;
+	font-weight:bold;
+}
+
+hr
+{
+	border: 0;
+	color: #4F6228;
+	background-color: #C2D69B;
+	height: 1px;
+	width: 100%;
+	text-align: left;
+}
+
+html
+{
+	height: 100%;
+}
+
+
+[draggable] {
+	user-select: none;
+	list-style-type:none;
+	font-family: Courier;
+	padding:5px;
+	margin:2px;
+	background-color:#C2D69B;
+	border:2px double #4F6228;
+}
+
+li
+{
+	line-height: 1.5em;
+	margin-left: -10px;
+
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+.header
+{
+	background-color: #C2D69B;
+	padding-left: 10px;
+	border-color: #000000;
+	border-width: 1px;
+	border-style: solid;
+}
+.courseTitle
+{
+	color: #000000;
+	font-size: 0.70em;
+	font-weight: bold;
+	padding-top: 8px;
+}
+.logo
+{
+	height: 110px;
+	border: none;
+	float: right;
+}
+.wrap
+{
+	text-align:left;
+	padding-left:10px;
+	padding-right:10px;
+	padding-bottom:10px;
+	padding-top:5px;
+	margin:0 auto;
+	width:95%;
+	border: 1px solid #000000;
+	background-color: #FFFFFF;
+	position: relative;
+}
+
+.discussion
+{
+    color: #363636;
+    font-style: oblique;
+}
+
+table.journal, table.rubric, table.requiredreading, table.quiz, table.externallink, table.enrichment, table.didyouknow, table.mmetable, table.assignmentlink, table.quiz, table.stopsign
+{
+	width: 90%;
+	border: double 3px #4F6228;
+	border-collapse: collapse;
+	background-color:#C2D69B;
+	margin: 0px auto 0px auto;
+}
+table.journal th, table.rubric th, table.requiredreading th, table.externallink th,table.enrichment th, table.didyouknow th, table.mmetable th, table.assignmentlink th, table.quiz th, table.stopsign th
+{
+	border: double 3px #4F6228;
+	padding: 10px;
+	vertical-align: top;
+	width: 5%;
+	font-weight: normal;
+}
+
+table.journal td, table.rubric td, table.requiredreading td, table.externallink td,table.enrichment td, table.didyouknow td, table.mmetable td, table.assignmentlink td, table.quiz td, table.stopsign td
+{
+	border: double 3px #4F6228;
+	padding: 10px;
+	vertical-align: top;
+	width: 95%;
+}
+
+.tableRubric
+{
+	font-size: 0.75em;
+	width: 95%;
+	border-collapse: collapse;
+	margin: 0px auto 0px auto;
+}
+
+
+.rubricTH
+{
+	text-align: center;
+	vertical-align: top;
+	padding: 6px;
+	border: solid 1px black;
+	background-color: #C2D69B;
+}
+
+
+.tdAltRubric, .tableRubric th
+{
+	vertical-align: top;
+	padding: 6px;
+	border: solid 1px black;
+	background-color: #C2D69B;
+}
+
+
+.tdAltRubric, .tableRubric td
+{
+	text-align: left;
+	vertical-align: top;
+	padding: 6px;
+	border: solid 1px black;
+}
+
+.assessment
+{
+    width: 50%;
+    border-collapse: collapse;
+    margin: 0px auto 0px auto;
+    border: solid 1px black;
+}
+
+.picturetable
+{
+	border: none;
+	border-collapse: collapse;
+
+	margin: 18px 0px 18px 0px;
+}
+
+
+.picturetable p
+{
+	margin: 0.5em 0;
+}
+
+.picturetable td
+{
+	vertical-align: middle;
+}
+
+.picturetable th
+{
+	vertical-align: middle;
+	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: white;
+	font-weight: normal;
+}
+
+.h4_assignment_title
+{
+    margin-bottom: 0px;
+}
+
+
+.dropbox
+{
+	background-color: #EAF1DD;
+	border-color: #4F6228;
+	border-width: 1px;
+	border-style: dashed;
+	padding: 10px;
+
+}
+
+blockquote
+{
+	background: #EAF1DD;
+	border-color: #4F6228;
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
+}
+.code
+{
+	background-color: #EAF1DD;
+	border-color: #4F6228;
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
+	margin: 2% 5% 2% 5%;
+	font-size: 12pt;
+
+}
+
+.caption
+{
+	font-size: 10pt;
+	color: #666666;
+	display: block;
+	text-align: center;
+}
+
+.questions
+{
+	background-color: #EAF1DD;
+	border-color: #4F6228;
+	border-width: 1px;
+	border-style: solid;
+	padding: 10px;
+}
+.quest
+{
+    width: 100%;
+    background-color: White;
+}
+
+.quest th
+{
+    width: 5%;
+    vertical-align: top;
+    background-color: White;
+}
+
+.quest td
+{
+    width: 95%;
+    vertical-align: top;
+    background-color: White;
+}
+.answers
+{
+	background-color: #EAF1DD;
+	border-color: #4F6228;
+	border-width: 1px;
+	border-style: solid;
+	padding: 0px;
+	vertical-align: top;
+	width: 100%;
+}
+.answers th
+{
+	vertical-align: top;
+	width: 5%;
+}
+
+.answers td
+{
+	vertical-align: top;
+	width: 95%;
+}
+
+
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #4F6228;
+}
+
+.collapsible_content {
+  padding: 0px 0px;
+  display: none;
+  overflow: hidden;
+}
+
+/*RBG Colours:
+medium (background)   C2D69B
+dark (border)  4F6228
+light (dropbox, code)  EAF1DD */
