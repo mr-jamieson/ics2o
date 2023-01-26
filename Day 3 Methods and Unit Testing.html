@@ -1,0 +1,947 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta property="og:title" content="Day 3: Methods and Unit Testing">
+    <title>Day 3: Methods and Unit Testing</title>
+    <link href="../resources/course_techno.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="header"><img alt="VA Logo" class="logo" src="../resources/images/VA%20Logo.png" />
+        <div class="courseTitle">ICS4U: Computer Science, Grade 12, University Preparation</div>
+
+        <h1>Week 1: Grade 11 Review</h1>
+
+        <h2>Activity 3: Methods and Unit Testing</h2>
+      </div>
+
+      <h3>Lesson Material</h3>
+      <hr />
+      <h4>Methods</h4>
+
+      <p>In programming, a larger program can often be divided up into smaller parts. We call these smaller parts subprograms, or in Java, we use the term <b>methods</b>.
+        These smaller parts can be combined to solve the larger problem.</p>
+
+      <p>There are many benefits to writing programs using methods:</p>
+      <ol>
+        <li>They allow the programmer to break a large problem into smaller parts, making it easier to solve</li>
+        <li>They allow the programmer to save time by reusing code. Any time the particular task needs to be completed, the method can be called, instead of repeating the code all
+          over again</li>
+        <li>They keep programs very well organized, and accomplish each task within small blocks of code</li>
+        <li>They can be tested using automated unit tests</li>
+      </ol>
+
+      <p><u>Definition</u>: A <b>Java method</b> is a collection of statements that are grouped together to perform an operation. When you call the Console.print()
+        method, for example, the system actually executes several statements in order to display a message on the console.</p>
+
+      <p>You have already been <em>using</em> methods (Console.print(), Console.readInt(), etc ...), this activity will help you learn how to <em>create</em> methods as well!</p>
+
+      <p>A method consists of:</p>
+
+      <ul>
+        <li>A declaration (also called a header or signature): optional modifiers, return type, name and parameters (if any)</li>
+        <li>A body: statements that implement the method</li>
+      </ul>
+
+      <p>The general form of a method is:</p>
+
+      <pre>
+&lt;optional_modifiers&gt; &lt;return_type&gt; &lt;name&gt;(&lt;parameters&gt;) {
+    &lt;statements&gt;
+}
+</pre>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 1: A simple method - sayHello()</h4>
+
+      <p>Below is a very simple example of a method. Note that this method has:</p>
+      <ul>
+        <li>the <b>public</b> modifier to control access level</li>
+        <li>the <b>static</b> modifier to create a class method</li>
+        <li>a <b>void</b> return type (meaning that the method does not contain the keyword <b>return</b>, thus it does not return a value)</li>
+        <li><b>no</b> parameters (their brackets are empty)</li>
+      </ul>
+
+      <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class MethodsExample {
+
+    public static void main(String[] args) {
+        sayHello();
+    }
+
+    public static void sayHello() {
+        Console.print("Hello World");
+    }
+
+}</pre>
+
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/tips.gif" alt="Did you know icon" title="Did you know icon" /></th>
+            <td>
+              <ul>
+                <li>Methods must belong to a class and need a descriptive name, that should be a verb (action word) such as findRadius() or sayHello()</li>
+                <li>When calling a method, ALWAYS use brackets after the method name: <tt>sayHello<b>()</b></tt></li>
+                <li>For today, all your method headers will contain the <b>static</b> modifier; this makes it a class method, instead of an instance method. We will learn more
+                  about this later!</li>
+                <li>Since Java is a compiled language, it does not matter what order you write your methods in, or whether they appear above or below the main method.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h4>Passing Data to a Method - Parameters and Arguments</h4>
+
+      <p>When you create a method, you can have it receive any kind of value you want, such as <tt>String</tt>, <tt>int</tt> or even objects (ADTs). Sending data to a method is
+        known as <strong>passing data</strong>.</p>
+
+      <p>In order to transfer the data you need to:<p>
+          <ol type="a">
+            <li><em>pass the data</em> to the method, and</li>
+            <li><em>catch the data</em> in the method</li>
+          </ol>
+          <p>When the data is passed to the method, we refer to it as a <strong>parameter</strong>, and when the data is caught in the method, we refer to it as an
+            <strong>argument</strong>.</p>
+
+          <h5>Passing the Data</h5>
+
+          <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+            <tbody>
+              <tr>
+                <th><img alt="This is an image of a young man preparing to throw a baseball." class="middle" src="images/A3Baseball.jpeg" /> <span class="caption"> <span
+                      class="center">Method calls <em>pass values</em> to methods.</span> </span></th>
+                <td>
+                  <p>Data is passed to a method in the statement that calls it. You may have noticed that when calling a method, you must include brackets at the end of the
+                    statement. These brackets hold parameters that you can send to the method.</p>
+
+                  <p>You can send any kind of data (int, float, String, boolean) this way. The data can be a literal statement or a value contained in a variable.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h5>Catching the Data</h5>
+
+          <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+            <tbody>
+              <tr>
+                <td>
+                  <p>In order for the data to be received, the method statement must include variables (called arguments) that will &ldquo;catch&rdquo; the data. The variables&#39;
+                    data types must match the data type of the incoming data.</p>
+
+                  <p>The variables are placed in brackets after the method&#39;s name. The code takes the form:</p>
+
+                  <pre>public void methodName (dataType variableName)</pre>
+                  <p>The <strong>received</strong> value tells the method what kind of data to expect and places it in a variable.<br /><img
+                      alt="This is an image of the received variable type and variable name." class="middle" src="images/A3ReceivedVariable.png" /></p>
+                </td>
+                <th><img alt="This is an image of a young girl catching a baseball." class="middle" src="images/A3BaseballCatch.jpeg" /> <span class="caption"> <span
+                      class="center">The methods <em>catch</em> the passed value.</span> </span></th>
+              </tr>
+            </tbody>
+          </table>
+          &nbsp;
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img alt="tips icon" class="icon" src="../resources/images/tips.gif" /></th>
+                <td>
+                  <ul>
+                    <li>When calling a method, you can use <b>parameters</b> to pass values into the method.</li>
+                    <ul>
+                      <li><b>Parameters</b> are passed by enclosing them in parentheses (multiple parameters separated by commas) in the method call</li>
+                    </ul>
+                    <li>When writing a method, you can accept <b>arguments</b> (data that is passed to the method) to be used inside the method (do <b>not</b> use a new
+                      declaration)</li>
+                    <ul>
+                      <li><b>Arguments</b> are accepted into a method by stating both the variable type and the argument name in the method header.</li>
+                    </ul>
+                    <li>The order of your parameters and arguments is important; the order must match both in type and intent.</li>
+                    <ul>
+                      <li>However, argument names do <b>not</b> need to match parameter names</li>
+                    </ul>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" />Example 2: Method with parameters</h4>
+
+          <p>Below is a simple example of a method with parameters and arguments:</p>
+
+          <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class MethodsExample {
+
+    public static void main(String[] args) {
+        showSum(2, 3, 10);
+    }
+
+    public static void showSum(int a, int b, int c) {
+        int sum = a + b + c;
+        Console.print("The sum is: " + sum);
+    }
+}</pre>
+
+          <p>Note that the <b>method call</b> passes three <b>parameters</b>: the integers 2, 3 and 10. <br />The <b>method header</b> identifies that
+            those integers will be accepts as <b>arguments</b>, into integer variables named a, b and c.</p>
+
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img src="../resources/images/tips.gif" alt="tips icon" title="tips icon" /></th>
+                <td>
+                  <ul>
+                    <li>Any variables declared inside a method (including the main method) have a <b>local scope</b> - they cannot be used or accessed outside of the
+                      method.</li>
+                    <ul>
+                      <li>This means that methods do not have access to the variables in other methods unless they are sent as parameters</li>
+                    </ul>
+                    <li>It is possible to have more than one method with the same name, but with different parameters. This is called <b>method overloading</b>.</li>
+                    <ul>
+                      <li>The compiler knows which method to used based on the number, type and order of the parameters</li>
+                    </ul>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 3: Overloaded methods</h4>
+
+          <p>The next example shows a possible implementation of drawing right triangle using a single character. </p>
+          <p>There are two versions of the method <tt>drawBar()</tt>, one that which accepts a <b>parameter <tt>i</tt></b> into the <b>argument <tt>length</tt></b>, the other that
+            also
+            accepts a <b>parameter <tt>'#'</tt></b> into the <b>argument <tt>symbol</tt></b>.</p>
+          <p> Since the method call is inside a <b>for loop</b>, the first part will make a total of 5 calls to the method <tt>drawBar(int)</tt>, each printing one more asterisk
+            than
+            the last one. The second part will make 10 calls to the method <tt>drawBar(int, char)</tt>.</p>
+
+          <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class RightTriangle {
+
+    public static void main(String[] args) {
+        /* draw a right triangle with base size 5 */
+        for (int i = 1; i <= 5; i++) {
+            drawBar(i); //parameter: i
+        }
+
+        /* draw a right triangle with base size 10 with a custom symbol */
+        for (int i = 1; i <= 10; i++) {
+            drawBar(i, '#'); //parameters: i, '#'
+        }
+    }
+
+    public static void drawBar(int length) { //argument: length
+        for (int i = 0; i < length; i++) {
+            Console.print("* ", false);
+        }
+        Console.print(); //force newline
+    }
+
+    public static void drawBar(int length, char symbol) { //arguments: length, symbol
+        for (int i = 0; i < length; i++) {
+            Console.print(symbol + " ", false);
+        }
+        Console.print(); //force newline
+    }
+}</pre>
+
+          <h4><img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" />Check your Understanding: Method Overloading</h4>
+
+          <p>The following questions will help you understand the concept of method overloading; it is possible to have more than one method of the same name, as long as their
+            parameter list (number, type, order) are different</p>
+
+          <div class="questions">
+            <ol>
+              <li>
+                <p>What is the output of the following program?</p>
+
+                <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class Exercise1 {
+
+    public static void main(String[] args) {
+        int num1 = 5, num2 = 10;
+        mystery(num1, num2);
+    }
+
+    public static void mystery(int x) {
+        Console.print(x * x);
+    }
+
+    public static void mystery(int x, int y) {
+        Console.print(x + y);
+    }
+}</pre>
+                <a href="answers/A3answer_1.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a><br />
+                &nbsp;
+              </li>
+              <li>
+                <p>What is the output of the following program?</p>
+
+                <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class Exercise2 {
+
+    public static void main(String[] args) {
+        int num1 = 8;
+        double num2 = 2.5;
+        mystery(num2, num1);
+    }
+
+    public static void mystery(int x, double y) {
+        Console.print(x + y);
+    }
+
+    public static void mystery(double x, int y) {
+        Console.print(x * y);
+    }
+}</pre>
+                <a href="answers/A3answer_2.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+              </li>
+              <li>
+                <p>What is the output of the following program?</p>
+
+                <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class Exercise3 {
+
+    public static void main(String[] args) {
+        double num1 = 8, num2 = 2.5;
+        mystery(num1, num2);
+        mystery(8, 2.5);
+    }
+
+    public static void mystery(int x, double y) {
+        Console.print(x + y);
+    }
+
+    public static void mystery(double x, int y) {
+        Console.print(x * y);
+    }
+
+    public static void mystery(double x, double y) {
+        Console.print(x - y);
+    }
+}</pre>
+                <a href="answers/A3answer_3.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+              </li>
+            </ol>
+          </div>
+
+          <br />
+          <hr />
+
+          <h4>Methods That Return Values</h4>
+
+          <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+            <tbody>
+              <tr>
+                <td>
+                  <p>In the previous examples, you learned how to <em>pass data</em> to a method from a call statement. A method can also <em>send data</em> back to the line of
+                    code that called it. This is called <strong>returning</strong> <strong>a value</strong> from a method.</p>
+
+                  <p>In order to return a value from a method, you need to do three things:</p>
+
+                  <ol>
+                    <li>specify which kind of value the method returns;</li>
+                    <li>return the value;</li>
+                    <li>create a variable that receives the returned variable.</li>
+                  </ol>
+                </td>
+                <th><img alt="This is an image of a diagram showing that values can be sent to, and returned from, a method." class="middle" src="images/A3PassingData.png" /> <span
+                    class="caption"> <span class="center">Methods can <em>accept</em> and <em>return</em> values.</span> </span>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+
+          <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+            <tbody>
+              <tr>
+                <th><img
+                    alt="This is an image of two methods. One begins with 'private String' and is described as returning a string value. The other one begins with 'private int' and is described as returning an integer variable."
+                    class="middle" src="images/A3MethodReturnType.png" /> <span class="caption"> <span class="center"> </span> </span></th>
+                <td>
+                  <p>When writing a method, <em>the second word in the statement describes the returned data type</em>.</p>
+
+                  <p>You have seen methods with a <strong>void </strong>return type. This meant that the method did not return a value.</p>
+                  <p>When you do want to return a value from a method, you can replace <em>void </em>with any data type.</p>
+
+                  <p>Setting a return data type takes the form:</p>
+                  <pre>scope ReturnDataType methodName (SentDataType variable)</pre>
+                  <p>Where</p>
+                  <p><em>ReturnDataType</em> can be String, int, double, boolean or other data type.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h5>Returning a Value</h5>
+
+          <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+            <tbody>
+              <tr>
+                <th><img alt="This is an image that features the line of code 'return sum;.' The comment is 'This returns the variable sum to the code that called the method.'"
+                    class="middle" src="images/A3ReturnStatement.png" /> <span class="caption"> <span class="center"> </span> </span></th>
+                <td>
+                  <p>To send a value back to the code that called it, you use the command <strong>return</strong>.</p>
+
+                  <pre>return variable;</pre>
+
+                  <p>will send the variable back to the line of code that called it.</p>
+
+                  <p>Within the method, you will <em>declare the variable</em> that will be returning the value. The data type of <em>this variable must match the returned data
+                      type set in the method&#39;s header</em>.</p>
+                </td>
+                <th><img alt="This is an image of a method showing that the data type of the returned variable (int) matches the returned data type listed in the method's header."
+                    class="middle" src="images/A3ReturnVariable.png" /> <span class="caption"> <span class="center"> </span> </span></th>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img src="../resources/images/tips.gif" alt="tips icon" title="tips icon" /></th>
+                <td>
+                  <ul>
+                    <li>A method can return a value</li>
+                    <li>Use the &lt;return_type&gt; in the method header to specify int, double, String, etc.</li>
+                    <li>Use the <strong>return</strong> statement at the end of the method body to send a value back to the calling statement</li>
+                    <ul>
+                      <li>Ideally, each method should only contain ONE return statement! This is good style!</li>
+                    </ul>
+                    <li>You should <strong>use</strong> the value that is returned from the method in some way:</li>
+                    <ul>
+                      <li>
+                        Set a variable equal to the method call using =
+                        <pre>int interest = calculateInterest(amount, rate);</pre>
+                      </li>
+                      <li>
+                        Use the method call as an operand in an expression (arithmetic, boolean or String)
+                        <pre>
+int term = coefficient * power(base, exponent);
+if (nextValue() == 4) { ... }
+</pre>
+                      </li>
+                      <li>
+                        Pass the result as a parameter to another method
+                        <pre>Console.print("Score: " + calculateScore());</pre>
+                      </li>
+                      <li>
+                        Advanced: If the data returned is an ADT (such as String) you can call another method on the output object (called method chaining)
+                        <pre>String nameInCaps = getName().toUppercase();</pre>
+                      </li>
+                    </ul>
+                    <li>In Java, a method may only return <strong>one</strong> value</li>
+                  </ul>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 4: Returning the Sum</h4>
+
+          <p>Below is a modification of the <tt>showSum(int, int, int)</tt> from example 2 above, which returns the sum, so main method can output it to the console.</p>
+
+          <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class MethodsExample {
+
+    public static void main(String[] args) {
+        int total = calcSum(2, 3, 10);
+        Console.print("The sum is " + total);
+    }
+
+    public static int calcSum(int a, int b, int c) {
+        int sum = a + b + c;
+        return sum;
+    }
+}</pre>
+
+          <p>In this version of the program, the result of the addition statement is returned to the main method, and assigned to the variable total.</p>
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img src="../resources/images/did_you_know.gif" alt="Did you know icon" title="Did you know icon" /></th>
+                <td>
+                  <ul>
+                    <li>Recall: Any variables declared inside a method have a <strong>local scope</strong> - they cannot be used or accessed outside of the method.</li>
+                    <ul>
+                      <li>Methods can only send information back to where they are called from with a return statement</li>
+                    </ul>
+                  </ul>
+
+                  <p>Parameters and return statements are like a one-way-street. Information flows either to the method (parameters), or back to the code that called the method
+                    (return statement)</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 5: CubeCalculator</h4>
+
+          <p>The example below shows a method <tt>cubeOf(int)</tt>, which returns the cube of its parameter.</p>
+
+          <p>Notice this example includes two methods that return values - the <strong>Console.readInt(String)</strong> as well as <strong>cubeOf(int)</strong>. Since cubeOf is
+            defined inside the same class as the method call, you do not need to include the class name. However, the readInt() method is located inside the Console class, so you
+            must include its class name for the method call to work.</p>
+
+          <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class CubeCalculator {
+
+    public static void main(String[] args) {
+        int num, cube;
+
+        // Input
+        num = Console.readInt("Enter a number:");
+
+        // Processing
+        cube = cubeOf(num);
+
+        // Output
+        Console.print("The cube of " + num + " is " + cube);
+    }
+
+    public static int cubeOf(int x) {
+        int cube;
+        cube = x * x * x;
+        return cube;
+    }
+
+}</pre>
+
+
+
+          <p>In the previous examples, we created methods that printed directly to the Console. Our goal movingf forward is to <b>limit calls to Console from methods and use the
+              Console class only in the main method</b>. One way to do this is to have our methods return a String, and then this value is printed to the Console.</p>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 6: RightTriangle, Revisited</h4>
+
+          <p>Below is an example of a modified RightTriangle application from example 3. Notice that now the method <b>returns a String</b> instead of using
+            <tt>Console.print()</tt>.</p>
+
+          <pre class="code">package activity3;
+import simpleIO.Console;
+
+public class RightTriangle {
+
+    public static void main(String[] args) {
+
+        int triangleSize = Console.readInt("Enter a size for your triangle: ");
+        char symbol = Console.readChar("Enter the symbol you would like to use: ");
+
+        /* draw a right triangle with base size entered by user */
+        for (int i = 1; i <= triangleSize; i++) {
+            String lineToPrint = createBar(i, symbol);
+            Console.print(lineToPrint);
+        }
+    }
+
+    public static String createBar(int length, char symbol) { //arguments: length, symbol
+        String triangle = "";
+
+        for (int i = 0; i < length; i++) {
+            triangle += symbol + " ";
+        }
+
+        return triangle;
+    }
+}</pre>
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img src="../resources/images/did_you_know.gif" alt="Did you know icon" title="Did you know icon" /></th>
+                <td>
+                  <p>One final note about terminology: Methods that have a <tt>void</tt> return type are also called <b>procedures</b>. Methods that <tt>return</tt> a value are
+                    also called <b>functions</b>.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br />
+          <hr />
+
+
+
+          <h4>Program Testing</h4>
+
+          <p>It is important that a programmer validate his/her program using a full range of test cases before it is implemented. This means that when you are testing
+            your program you should try and see how it will react to a variety of input values and ensure that the results you receive are correct. When creating test cases, you
+            should include both regular inputs, as well as inputs that might cause potential problems in the program.</p>
+
+          <p>To manually test a program can be very time consuming, so it can be helpful to use an automated testing strategy to simplify the process. In this activity we
+            will be learning about the JUnit automated testing framework that is used by many programmers to automate their testing.</p>
+
+          <p>In order for automated testing to be useful, you must use <strong>functions</strong> in your programs. The JUnit framework is used for testing methods, but
+            it is not meant for testing the main() method. Recall the general model for designing computer programs: Input - Processing - Storage - Output. Ideally, your methods
+            will contain the Processing portion of your program, while the main method, using the Console class, will handle the Input &amp; Output. This setup will allow you to
+            make use of automated testing.</p>
+
+          <h4>Creating Automated Tests</h4>
+
+          <p>To create a Junit test, it is considered best practice to use the name of the class that you are testing, followed by the keyword "Test". In this course, all classes
+            that end with the letters "Test" are considered JUnit tests!</p>
+
+          <p>So, if we wanted to create a JUnit test for the CubeCalculator program above, we would name it <b>CubeCalculatorTest.java</b></p>
+
+          <p>Once your JUnit Class is created, you will need to populate it with test cases. For each test case, you must decide what input you will use, as well as the output that
+            you
+            expect to receive. Then call the <strong>assertEquals(expected, actual)</strong> method provided by the JUnit framework.</p>
+          <ul>
+            <li>The <strong>expected</strong> parameter should be the output that your method should provide (this can be a String, int, double, boolean, etc)</li>
+            <li>The <strong>actual</strong> parameter should include a call to the method under test (don't forget to include the class name) with the inputs that should produce
+              the
+              output identified in the previous step</li>
+            <li>When testing methods that return <b><tt>double</tt></b> values, a <b>delta</b> parameter is needed. This is the maximum difference between <b>expected</b> and
+              <b>actual</b> for which both numbers are still considered equal</li>
+          </ul>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 7: JUnit Test for CubeCalculator</h4>
+
+          <p>The following is a simple automated test for the RectangleCalculator class. Notice that each test scenario (normal behaviour, one input is zero, one input is negative)
+            is placed in its own method, with one or more test cases per method. Also the annotation <strong>"@Test"</strong> must be placed prior to each method so JUnit knows how
+            to run it
+            correctly.</p>
+
+          <pre class="code">package activity3;
+
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class CubeCalculatorTest {
+
+    @Test
+    public void testNormalScenario() {
+        assertEquals(125, CubeCalculator.cubeOf(5));
+        assertEquals(8, CubeCalculator.cubeOf(2));
+        assertEquals(1, CubeCalculator.cubeOf(1));
+    }
+
+    @Test
+    public void testZeroValues() {
+        assertEquals(0, CubeCalculator.cubeOf(0));
+    }
+
+    @Test
+    public void testNegativeValues() {
+        assertEquals(-8, CubeCalculator.cubeOf(-2));
+    }
+
+}</pre>
+
+          <p>There are two options for running JUnit tests. The first involves using the JUnit Console Standalone program, provided in your Repl.it. The other option involves
+            manually editing the TestRunner.java program found in your test folder. Your teacher will demonstrate both! </p>
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img alt="didyouknow icon" class="icon" src="../resources/images/did_you_know.gif" /></th>
+                <td>
+                  <p>Why is the extra parameter needed when testing methods that return doubles? This is due to the lack of precision in storing double variables, which you may
+                    have
+                    already noticed in some of your programs.</p>
+                  <p>Usually, the delta argument is a small number that represents the allowable rounding error.</p>
+                  <p>For example, suppose we had a method called <tt>calculatePay(int hours, double rate)</tt> in an <tt>Employee</tt> class, which accepts the number of hours
+                    worked
+                    and the hourly rate, and returns the total pay. The assert statement to test that method could be:</p>
+                  <pre class=code>assertEquals(112.50, Employee.calculatePay(15, 7.50), 0.005);</pre>
+                  <p>This delta value of 0.005 would allow for rounding (up or down) to the nearest hundredth (2 decimal places of accuracy).
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>When creating your tests, consider the following suggestions:</p>
+
+          <ul>
+            <li>Test typical values (values you expect the user will enter)</li>
+            <li>Test very large, very small, and both negative and positive values.</li>
+            <li>Test boundary conditions using the extremes of your input domain (maximum, minimum, just inside or outside the boundary)</li>
+            <li>Test all of the branches of your decision structures</li>
+            <li>Test repetition structures for typical and large numbers of iterations, as well as zero iterations</li>
+            <li>Test conditions that should generate an error.</li>
+          </ul>
+
+          <table class="externallink">
+            <tbody>
+              <tr>
+                <th><img alt="external link icon" class="icon" src="../resources/images/external_links.gif" /></th>
+                <td>
+                  <p>To learn more about JUnit and automated testing, read the <a href="https://junit.org/junit4/javadoc/4.12/index.html" target=_blank>JUnit API</a></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Finally, it's important to realize that not all programs can be testing only with automated tests (there will still be a need for some manual testing!), but they are a
+            great asset for designing robust programs. Many programmers adopt a "test-driven development" programming style, where the programmer creates their automated tests
+            before creating their programs. That way they know when their program is complete; it passes all the test cases!</p>
+
+          <br />
+          <hr />
+
+          <h4>The Math Class</h4>
+
+          <p>The word "computer" traces its origin back to the 17th century, meaning "one who calculates, a reckoner, one whose occupation is to make arithmetical calculations"
+            (source: <a href="https://www.etymonline.com/word/computer" target="_blank">Online Etymology Dictionary</a>.) The early computers were large calculating machines.
+            Computers make mathematical calculations vastly simpler and quicker than performing the same calculations by hand.</p>
+
+          <p>The <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html" target="_blank">Math class</a> contains methods and constants for common
+            mathematical functions and values.</p>
+
+          <p>The constants in the Math class are:</p>
+          <ul>
+            <li>Math.PI &asymp; 3.141592653589793 (ratio of a circle's circumference to its diameter)</li>
+            <li>Math.E &asymp; 2.718281828459045 (Euler's number; base of the natural logarithm)</li>
+          </ul>
+
+          <p>The following table describes some methods found in the Math class that you may find helpful throughout this course:</p>
+
+          <table border=1 cellspacing=0 cellpadding=5>
+            <tr>
+              <td><strong>Return type</strong></td>
+              <td><strong>Method Name & Parameters</strong></td>
+              <td><strong>Description</strong></td>
+              <td><strong><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example</strong></td>
+            </tr>
+            <tr>
+              <td>int<br />double</td>
+              <td>abs(int a)<br />abs(double&nbsp;a)</td>
+              <td>Returns the absolute value of the argument (distance of a number from zero; always positive)</td>
+              <td>
+                <pre>int num1 = Math.abs(-8);      //num1 = 8
+double num2 = Math.abs(2.5);  //num2 = 2.5</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>ceil(double&nbsp;a)</td>
+              <td>Returns the ceiling of the argument. The ceiling of a number is the closest integer that is greater than or equal to the number.</td>
+              <td>
+                <pre>double num1 = Math.ceil(5.1);   //num1 = 6.0
+double num2 = Math.ceil(-3.9);  //num2 = -3.0</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>floor(double&nbsp;a)</td>
+              <td>Returns the floor of the argument. The floor is the closest integer that is less than or equal to the specified number or expression.</td>
+              <td>
+                <pre>double num1 = Math.floor(8.7);   //num1 = 8.0
+double num2 = Math.floor(-6.4);  //num2 = -7.0</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>long</td>
+              <td>round(double&nbsp;a)</td>
+              <td>Rounds the value of the argument up or down to the nearest integer and returns the value. If value is equidistant from its two nearest integers (that is, if the
+                number ends in .5), the value is rounded up to the next higher integer. <br />Note that this method returns a long, which is an integer but requires more memory.
+                <strong>You must cast to an int to store in an int variable</strong></td>
+              <td>
+                <pre>int num1 = (int) Math.round(8.6);   //num1 = 9
+int num2 = (int) Math.round(-2.3);  //num2 = -2</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>int<br />double</td>
+              <td>min(int a, int b)<br />min(double&nbsp;a,&nbsp;double&nbsp;b)</td>
+              <td>Returns the smaller of the arguments</td>
+              <td>
+                <pre>int num1 = Math.min(-8, -2);       //num1 = -8
+double num2 = Math.min(0.9, 1.1);  //num2 = 0.9</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>int<br />double</td>
+              <td>max(int a, int b)<br />max(double&nbsp;a,&nbsp;double&nbsp;b)</td>
+              <td>Returns the larger of the arguments </td>
+              <td>
+                <pre>int num1 = Math.max(-8, -2);       //num1 = -2
+double num2 = Math.max(0.9, 1.1);  //num2 = 1.1</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>sqrt(double a)</td>
+              <td>Returns the positive square root of the argument. If the argument is a negative number, the method returns Double.NaN (not a number)</td>
+              <td>
+                <pre>Console.print(Math.sqrt(16));    //output: 4.0
+Console.print(Math.sqrt(-16));   //output: NaN</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>cbrt(double a)</td>
+              <td>Returns the cube root of the argument.</td>
+              <td>
+                <pre>Console.print(Math.cbrt(8));    //output: 2.0
+Console.print(Math.cbrt(-8));   //output: -2.0</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>pow(double a, double b)</td>
+              <td>Returns the value of the first argument raise to the power of the second argument. See the <a
+                  href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Math.html#pow(double,double)" target="_blank">Math API</a> for a listing of special
+                cases</td>
+              <td>
+                <pre>Console.print(Math.pow(16, 0.25)); //output: 2.0
+Console.print(Math.pow(10, -2));   //output: 0.01</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double<br />double<br />double</td>
+              <td>sin(double a)<br />cos(double a)<br />tan(double a)</td>
+              <td>Returns the trigonometric sine, cosine, or tangent of the angle a, where a is expressed in radians (1 radian &asymp; 57.3&deg;)</td>
+              <td>
+                <pre>Console.print(Math.sin(0.75), 4);   //output: 0.6816
+Console.print(Math.cos(2.5), 4);    //output: -0.8011
+Console.print(Math.tan(-1.35), 4);  //output: -4.4552</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double<br />double<br />double</td>
+              <td>asin(double a)<br />acos(double a)<br />atan(double a)</td>
+              <td>Returns the arc (inverse) sine, arc (inverse) cosine, or arc (inverse) tangent of the argument a.<br />For asin & atan, the returned angle is in the range -pi/2
+                through pi/2.<br />For acos, the returned angle is in the range 0.0 through pi</td>
+              <td>
+                <pre>Console.print(Math.asin(0.6816), 2);  //output: 0.75
+Console.print(Math.acos(-0.8011), 2); //output: 2.5
+Console.print(Math.atan(-4.4552), 2); //output: -1.35</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double<br />double</td>
+              <td>toDegrees(double&nbsp;radAngle)<br />toRadians(double&nbsp;degAngle)</td>
+              <td>Converts an angle measured in radians to an approximate equivalent angle measured in degrees, or vice versa.</td>
+              <td>
+                <pre>Console.print(Math.toDegrees(1.0), 1);  //output: 57.3
+Console.print(Math.toRadians(57.3), 1); //output: 1.0</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>double</td>
+              <td>random()</td>
+              <td>Returns a pseudorandom number, such that <strong>0.0&nbsp;&le;&nbsp;number&nbsp;&lt;&nbsp;1.0</strong> (greater than or equal to 0.0 and less than
+                1.0)<br /><br />
+                The random() function is often used within arithmetic expressions to create random numbers within a specified range.</td>
+              <td>The following method will return a random number between a and b (which may include a or b). Use this method when generating a random number between any 2
+                numbers:
+                <pre>public static int randomNumber(int a, int b) {
+  int highNum = Math.max(a, b);
+  int lowNum = Math.min(a, b);
+  int range = highNum - lowNum + 1;
+  return (int) (Math.random() * range) + lowNum;
+}</pre>
+              </td>
+            </tr>
+          </table>
+
+<!-- 
+          <h3>Evidence of Learning</h3>
+
+          <hr />
+          <h4 class="h4_assignment_title"><img class="icon" src="../resources/images/dropbox.gif" />Programming Exercises</h4>
+
+          <div class="dropbox">
+            <p>Once you have reviewed the material above complete the following. Place all code in the folder named <b>activity3</b> in your Week 1 Repl.it project</p>
+            <ol>
+              <li>
+                Create a <b>TimeChanger</b> application that allows the user to choose among converting hours to minutes, days to hours, minutes to hours, or hours to days. <b>Use
+                  methods as appropriate</b>.<br /><br />
+              </li>
+              <li>
+                In Canada, federal income tax is calculated differently depending on the amount of taxable income that you have earned.
+                <blockquote>The rates for 2021 are as follows:
+                  <ul>
+                    <li>15% on the first $49,020 of taxable income, plus</li>
+                    <li>20.5% on the next $49,020 of taxable income (on the portion of taxable income over 49,020 up to $98,040), plus</li>
+                    <li>26% on the next $53,939 of taxable income (on the portion of taxable income over $98,040 up to $151,978), plus</li>
+                    <li>29% on the next $64,533 of taxable income (on the portion of taxable income over 151,978 up to $216,511), plus</li>
+                    <li>33% of taxable income over $216,511</li>
+                  </ul>
+                </blockquote>
+                Create a <b>FederalTax</b> program that accepts the taxable income, calculates the amount using a method, and displays the amount, in $, that is owed in Federal
+                Tax. (Do not consider deductions - you are not creating a fully fledged tax program here!) Visit this <a
+                  href="https://www.canada.ca/en/revenue-agency/services/tax/individuals/frequently-asked-questions-individuals/canadian-income-tax-rates-individuals-current-previous-years.html"
+                  target=_blank>Government of Canada website</a> for more details.<br /><br />
+
+                Your application must include the method <strong><tt>public static double calculate(int taxableIncome)</tt></strong> for testing purposes.<br />
+                You must also create a <b>JUnit test</b> to show that your program works properly!<br /><br />
+              </li>
+              <li>
+                Create a <strong>LightIntensity</strong> application that will determine the angle, <strong>in degrees</strong>, formed between two polarizers to reduce light
+                intensity by a given percentage.
+                <table>
+                  <tr>
+                    <td>This is determined by Malus' Law, which states:<br /><img src="images/A3MalusLawFormula.png" /><br />where
+                      <ul>
+                        <li>I<sub>0</sub> is the intensity of the initial beam of light</li>
+                        <li>I is the intensity of the light emerging from the polarizing material</li>
+                        <li>&theta; is the angle formed between the two polarizers.</li>
+                      </ul><br />
+                      This can be rearranged and simplified to:<br /><img src="images/A3MalusLawRearranged.png" /><br />
+                      where
+                      <ul>
+                        <li>r is the desired reduction in light intensity (0 &le; r &le; 100)</li>
+                        <li>&theta; is the angle formed between the two polarizers.</li>
+                      </ul>
+                    </td>
+                    <td><img src="images/A3MalusLawImage.png" /></td>
+                  </tr>
+                </table>
+                Your application must include the method <strong>public static double polarizerAngle(int reduction)</strong> for testing purposes.<br /><br />
+              </li>
+
+              <li>A conversion chart for translating a student's percentage grade and the level associated with that grade is shown below:<br />
+                <img src="images/A3LevelsPercentages.jpg"><br /><br />
+                A <strong>LevelGrades</strong> program to convert between levels and grades has been included in your Repl.it project (<i>as a class file in the blackbox folder -
+                  no
+                  source code for this program has been provided!</i>), however <b>it contains a number of logic errors</b>. <br />
+
+                Use the <strong>LevelGradesTest</strong> JUnit Test provided and create more test cases to find ALL the logic errors in the code. Your JUnit tests should test the
+                two methods contained in the LevelGrades class:
+                <ul>
+                  <li><strong>public static String gradeToLevel(int grade)</strong> - this method accepts an integer representing a student's percentage grade and returns a String
+                    corresponding to the level the student has achieved. If a number is given that is not within the range, it should return the String "invalid input"</li>
+                  <li><strong>public static int levelToGrade(String level)</strong> - this method accepts a String representing a student's level of achievement and returns an int
+                    corresponding to a 'pegged' percentage grade. The 'pegged' percentage should represent the midpoint of the grade range, rounded up to the nearest integer if
+                    needed. If an invalid String is entered, it should return -1.</li>
+                </ul>
+                <br /><strong>Clearly describe ALL the logic errors that you found using your JUnit test.</strong></li>
+
+            </ol>
+
+          </div> -->
+    </div>
+  </body>
+</html>

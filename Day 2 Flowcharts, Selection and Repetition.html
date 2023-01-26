@@ -1,0 +1,1082 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta property="og:title" content="Day 2: Algorithm Design, Selection and Repetition Structures">
+    <title>Day 2: Algorithm Design, Selection and Repetition Structures</title>
+    <link href="../resources/course_techno.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="header"><img alt="VA Logo" class="logo" src="../resources/images/VA%20Logo.png" />
+        <div class="courseTitle">ICS4U: Computer Science, Grade 12, University Preparation</div>
+
+        <h1>Week 1: Grade 11 Review</h1>
+
+        <h2>Activity 2: Algorithm Design, Selection and Repetition Structures</h2>
+      </div>
+
+      <h3>Lesson Material</h3>
+      <hr />
+
+      <h4>Algorithm Design</h4>
+
+      <p>An <b>algorithm</b> is a set of steps for solving a particular problem. To be an algorithm, a set of rules must be unambiguous and have a clear stopping point. We use
+        algorithms every day; for example, a recipe for baking a cake is an algorithm. Most computer programs consist of algorithms. One of the key challenges in programming is
+        inventing algorithms that are simple, requiring the fewest steps possible.</p>
+
+      <p>Flowcharts are used to communicate algorithms in language-independent terms. A flowchart is a diagram using symbols and arrows which describes the solution to a computer
+        problem in a step-by-step manner.</p>
+
+      <p>The first thing you need is a set of symbols you can use so that your flowcharts make sense and look organized.</p>
+
+      <table border="1" cellpadding="6" cellspacing="0">
+        <tr>
+          <td><strong>Symbol</strong></td>
+          <td><strong>Meaning</strong></td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2Terminator.jpg" alt="This is an image of a start/stop symbol." class="middle" />
+          </td>
+          <td><strong>Terminator</strong>&#8212;the beginning or end of the algorithm</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2Process.jpg" alt="This is an image of a process symbol." class="middle" />
+          </td>
+          <td><strong>Process</strong>&#8212;calculation, assigning value, do something</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2IO.jpg" alt="This is an image of an input/output symbol." class="middle" />
+          </td>
+          <td><strong>Input/Output</strong>&#8212;data entered and stored, answer displayed.</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2Decision.jpg" alt="This is an image of a decision symbol." class="middle" />
+          </td>
+          <td><strong>Decision</strong>&#8212;question asked&#8212;True/False or Yes/No response only.</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2Connector.jpg" alt="This is an image of connector symbols." class="middle" />
+          </td>
+          <td><strong>Connector</strong>&#8212;connects one part of the flowchart to another.</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2OffPage.jpg" alt="This is an image of off page connector symbols." class="middle" />
+          </td>
+          <td><strong>Off page connector</strong>&#8212;used if flowchart must be continued on another page.</td>
+        </tr>
+        <tr>
+          <td>
+            <img src="images/A2Arrows.jpg" alt="This is an image of directional  arrows." class="middle" />
+          </td>
+          <td><strong>Directional arrows</strong>&#8212;connect one symbol to another.</td>
+        </tr>
+      </table>
+
+      <h6>Flowcharting Rules</h6>
+      <ul>
+        <li>Each symbol has one entry and one exit point except Decision (one entry and two exits) and Terminator (one entry or one exit only).</li>
+        <li>Each arrow connects to each symbol or arrow.</li>
+        <li>Arrows do not cross.</li>
+        <li>Yes/no responses should face the same direction for each decision symbol. </li>
+        <li>All lines and symbols are drawn neatly and with precision. </li>
+        <li>Best Practice: have one start and one stop.</li>
+      </ul>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 1: Avocado Toast Flowchart</h4>
+
+      <p>The following is an example of a flowchart used to create a simple snack. Notice how the arrows show the flow of the algorithm</p>
+
+      <img src="images/A2AvocadoToast.png" width=600 />
+
+      <h4>Boolean or Logical Expressions</h4>
+
+      <p>In programming, decisions are made based on conditions. A <strong>condition </strong>takes the form of a boolean expression (sometimes called a logical expression). Every
+        boolean expression has
+        one of the two boolean values: <strong>true </strong>or <strong>false</strong>.</p>
+
+      <p>Boolean expressions can be created in the following ways:</p>
+
+      <ul>
+        <li>boolean variables (can be assigned a value of true or false)</li>
+        <li>comparison (or relational) operators</li>
+        <li>boolean operators</li>
+      </ul>
+
+
+      <h5>Comparison Operators</h5>
+
+      <p>Comparison (or relational) operators test a relationship between two values and determine if the relationship is <strong>true</strong> or <strong>false</strong>.</p>
+
+      <table border="1" cellpadding="5">
+        <tbody align="center">
+          <tr>
+            <th>Operator</th>
+            <th>Relationship Tested</th>
+          </tr>
+          <tr>
+            <td>==</td>
+            <td>Equal to</td>
+          </tr>
+          <tr>
+            <td>!=</td>
+            <td>Not equal to</td>
+          </tr>
+          <tr>
+            <td>&lt;</td>
+            <td>Less than</td>
+          </tr>
+          <tr>
+            <td>&gt;</td>
+            <td>Greater than</td>
+          </tr>
+          <tr>
+            <td>&lt;=</td>
+            <td>Less than or equal to</td>
+          </tr>
+          <tr>
+            <td>&gt;=</td>
+            <td>Greater than or equal to</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <p>By comparing two values or expressions, you test that a relationship (such as "less than") exists between them. If the relationship does exist, the condition is true; if
+        not, it is false. These are the relationships you can test in Java.</p>
+
+      <p>You can use relational operators to compare variables, constants and the values of arithmetic expressions. The following table shows the results of using the relational
+        operators to compare different types of expressions.</p>
+
+      <table border="1" cellpadding="5">
+        <tbody align="center">
+          <tr>
+            <th>Value of x </th>
+            <th>Value of y </th>
+            <th>Expression </th>
+            <th>Result </th>
+          </tr>
+          <tr>
+            <td> 5 </td>
+            <td> 6 </td>
+            <td> x &lt; y </td>
+            <td> True </td>
+          </tr>
+          <tr>
+            <td> 7 </td>
+            <td> 9 </td>
+            <td> 2 * x &lt;= y </td>
+            <td> False </td>
+          </tr>
+          <tr>
+            <td> 2 </td>
+            <td> 4 </td>
+            <td> 2 * x == y </td>
+            <td> True </td>
+          </tr>
+          <tr>
+            <td> -4 </td>
+            <td> 4 </td>
+            <td> 3 * x != 3 * y </td>
+            <td> True </td>
+          </tr>
+          <tr>
+            <td> 6 </td>
+            <td> -12 </td>
+            <td> 4 * x &gt;= -4 * y </td>
+            <td> False </td>
+          </tr>
+          <tr>
+            <td> -5 </td>
+            <td> 6 </td>
+            <td> x &gt; y </td>
+            <td> False </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <td>
+              <p>Be careful when useing relational operator <tt>==</tt> with Strings or other Compound types (ADTs). </p>
+
+              <p>The <tt>==</tt> operator compares the object references (the addresses of the locations of the objects in memory) and tests them for equality, not the content of
+                the object. </p>
+
+              <p>When testing Strings (or other objects) for equality, you should always use the <tt>equals()</tt> method.</p>
+
+            </td>
+            <th>
+              <img src="images/A2StringEquals.png" />
+
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Boolean Operators</h5>
+
+      <p>Boolean operators AND (&amp;&amp;), OR (||) and NOT (!) take Boolean expressions as operands. Java uses the symbols &amp;&amp;, || and ! for the Boolean operators. By
+        combining comparison
+        operators with Boolean operators, you can make more complex conditions. For example, suppose you want to determine whether your final mark is greater than 90 AND your
+        midterm mark is greater than 70. In Java you would write the expression this way:
+        <pre>finalMark > 90 && midtermMark > 70</pre>
+      </p>
+
+      <p>In another example, suppose you wanted to determine whether the midterm level is a 4 OR the final level is a 4. If either the midterm level or the final level equals 4,
+        the condition is True. In Java, you can write the expression like this:
+        <pre>midtermLevel == 4 || finalLevel == 4</pre>
+      </p>
+
+      <p>The table below summarizes the three Boolean operators, and provides their truth table (a table showing all the possible inputs & outputs for that operator.) For each
+        truth table, X and Y are boolean variables.</p>
+
+      <table border="2" cellpadding="5" width="95%">
+        <tbody>
+          <tr>
+            <th width="15%"> Boolean Operator </th>
+            <th width="10%"> Symbol </th>
+            <th width="45%"> Description </th>
+            <th width="30%"> Truth Table </th>
+          </tr>
+          <tr>
+            <td align="center"> AND </td>
+            <td align="center"> &amp;&amp; </td>
+            <td> The AND operator takes two Boolean expressions as operands. It requires that both expressions to be true in order for the overall result to be true. If either or
+              both of the expressions are false, the entire result is false. </td>
+            <td>
+              <table border="1" cellpadding="5" width="95%">
+                <tbody align="center">
+                  <tr>
+                    <th>X </th>
+                    <th>Y </th>
+                    <th>X &amp;&amp; Y </th>
+                  </tr>
+                  <tr>
+                    <td> true </td>
+                    <td> true </td>
+                    <td> true </td>
+                  </tr>
+                  <tr>
+                    <td> true </td>
+                    <td> false </td>
+                    <td> false </td>
+                  </tr>
+                  <tr>
+                    <td> false </td>
+                    <td> true </td>
+                    <td> false </td>
+                  </tr>
+                  <tr>
+                    <td> false </td>
+                    <td> false </td>
+                    <td> false </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center"> OR </td>
+            <td align="center"> || </td>
+            <td> The OR operator takes two Boolean expressions as operands. If either or both are true, the result is true. Both expressions must be false for the result to be
+              false. </td>
+            <td>
+              <table border="1" cellpadding="5" width="95%">
+                <tbody align="center">
+                  <tr>
+                    <th>X </th>
+                    <th>Y </th>
+                    <th>X || Y </th>
+                  </tr>
+                  <tr>
+                    <td> true </td>
+                    <td> true </td>
+                    <td> true </td>
+                  </tr>
+                  <tr>
+                    <td> true </td>
+                    <td> false </td>
+                    <td> true </td>
+                  </tr>
+                  <tr>
+                    <td> false </td>
+                    <td> true </td>
+                    <td> true </td>
+                  </tr>
+                  <tr>
+                    <td> false </td>
+                    <td> false </td>
+                    <td> false </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center"> NOT </td>
+            <td align="center"> ! </td>
+            <td> The NOT operator takes one Boolean expression as its operand (called a unary operator). It gives the opposite as the result. </td>
+            <td>
+              <table border="1" cellpadding="5" width="95%">
+                <tbody align="center">
+                  <tr>
+                    <th> X </th>
+                    <th> ! X </th>
+                  </tr>
+                  <tr>
+                    <td> true </td>
+                    <td> false </td>
+                  </tr>
+                  <tr>
+                    <td> false </td>
+                    <td> true </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The Boolean AND operator is very helpful for verifying that a given number is <strong>between</strong> two other numbers.</p>
+
+      <p>Say you want to check if a number is between 80 and 100. This will be true if the number is above 80 AND below 100. Use Boolean and comparison operators as follows:
+        <pre>number > 80 && number < 100</pre>
+        This expression will return true when number is between 80 and 100, and false otherwise.</p>
+
+
+      <p>Similar to arithmetic operators (+, -, *, /, %), Boolean operators have a recognized order of operations. If you required the operations to be evaluated in a different
+        order, use parentheses to change the operator precedence.</p>
+      <ol>
+        <li>NOT (!) is evaluated first</li>
+        <li>AND (&amp;&amp;) is evaluated next</li>
+        <li>OR (||) is evaluated last</li>
+      </ol>
+
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/did_you_know.gif" alt="Did you know icon" title="Did you know icon" /></th>
+            <td>
+              <p>When combining comparison and Boolean operators, you will need to perform the comparisons first.</p>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <p>The following table lists all the operators that we have seen so far in this course (as well as one operator that we will see next activity; the square brackets []),
+        listed in the order of their operator precedence (associativity refers to the order that they are evaluated if they all have the same precedence.)</p>
+
+      <table border="2" cellpadding="5" width="50%">
+        <tbody align="center">
+          <tr>
+            <th>Category</th>
+            <th>Operator</th>
+            <th>Associativity</th>
+          </tr>
+          <tr>
+            <th>Postfix</th>
+            <td>() [] . (dot operator)</td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Unary</th>
+            <td>++ -- !</td>
+            <td>Right to left</td>
+          </tr>
+          <tr>
+            <th>Multiplicative</th>
+            <td>* / % </td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Additive</th>
+            <td>+ - </td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Relational</th>
+            <td>&gt; &gt;= &lt; &lt;=</td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Equality</th>
+            <td>== !=</td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Logical AND</th>
+            <td>&&</td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Logical OR</th>
+            <td>||</td>
+            <td>Left to right</td>
+          </tr>
+          <tr>
+            <th>Assignment</th>
+            <td>= += -= *= /= %=</td>
+            <td>Right to left</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h4><img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" />Check Your Understanding</h4>
+      <div class="questions">
+        <ol>
+          <li>
+            <p>What is the value of the following expression?</p>
+
+            <pre>! (5 < 6) || 2 < 4 && 3 > 6</pre>
+            <a href="answers/A2answer_1.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a><br />
+            &nbsp;
+          </li>
+        </ol>
+      </div>
+
+
+
+      <h4>Selection Control Structures</h4>
+
+      <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <td>
+              <p>You can use a selection control structure when you want the computer to choose between alternative actions. You make a conditional statement that is either true or
+                false.</p>
+              <p>If the conditional statement is <strong>true</strong>, the computer executes one statement or set of statements. </p>
+              <p>If it is <strong>false</strong>, it executes a different statement or set of statements.</p>
+              <p> The computer&#39;s ability to solve practical problems is an outcome of its ability to make decisions and execute different
+                statements.</p>
+            </td>
+            <th>
+              <div><img src="images/A2FlowchartDecision.png" width=350 /></div>
+
+              <div class="caption">A selection structure using flowchart notation</div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+      <h4>If Statement</h4>
+
+      <p>The if statement is the fundamental selection control structure that allows the computer program to select certain statement(s) to execute. With it, you can test a
+        relationship and choose a course of action.</p>
+
+      <p>The if statement comes in two forms, the <strong>if form</strong> and the <strong>if-else form</strong>.</p>
+
+      <table cellpadding="6" cellspacing="0" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <th width="50%">
+              <h5>If form</h5>
+            </th>
+            <th width="50%">
+              <h5>If-Else form</h5>
+            </th>
+          </tr>
+          <tr>
+            <td>Sometimes you run into a situation where you want to say, &ldquo;If a certain condition is true, perform some action; otherwise, don&#39;t do anything.&rdquo; The
+              If form of the If statement would be used in this case.</td>
+            <td>Sometimes you run into a situation where you want to say, &ldquo;If a certain condition is true, perform one action; else perform a different action.&rdquo; The
+              computer performs just one of the two actions under any given set of circumstances. The If-Else form of the If statement would be used in this case.</td>
+          </tr>
+          <tr>
+            <td>The syntax of an if statement is:
+              <pre>
+      if ( &lt;<em>condition</em>&gt; ) {
+          &lt;<em>statements</em>&gt;
+      }</pre>
+            </td>
+            <td>The syntax of an if-else statement is:
+              <pre>
+      if ( &lt;<em>condition</em>&gt; ) {
+          &lt;<em>statements #1</em>&gt;
+      } else {
+          &lt;<em>statements #2</em>&gt;
+      }</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>The <condition> must produce a Boolean result. If it is <strong>true</strong>, the statement(s) are executed.</condition>
+            </td>
+            <td>The <condition> must produce a Boolean result. If it is <strong>true</strong>, the statements #1 are executed. If it is <strong>false</strong>, the statements #2
+                are executed.</condition>
+            </td>
+          </tr>
+          <tr>
+
+            <td>
+              <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 2: If Statement</h4>
+              <pre class="code">
+    if (temperature &gt; 0) {
+        Console.print(&quot;Above freezing&quot;);
+    }</pre>
+            </td>
+            <td>
+              <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 3: If/Else Statement</h4>
+              <pre class="code">
+    if (age &lt; 18) {
+        Console.print(&quot;Too young to vote.&quot;);
+    } else {
+        Console.print(&quot;Old enough to vote!&quot;);
+    }</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      &nbsp;
+
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/tips.gif" /></th>
+            <td>
+              <ul>
+                <li>The condition must be placed inside parentheses "()"</li>
+                <li>Notice that both forms of the "if" statement DO NOT end with a semicolon!</li>
+                <li>Also note the curly brackets used to denote the code inside the selection structure.</li>
+                <li>The body of a selection statement should be indented.</li>
+                <li>An open curly brace "{" should be placed on the same line as the if statement, and the closing curly brace "}" should be on a separate line and aligned with the
+                  if statement</li>
+                <li>If there is an else statement, it should have the closing curly brace "}" and the opening curly brace "{" on the same line</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>The Else-If Statement</h4>
+
+      <p>Suppose you wanted to choose from a set of alternatives and not from just two alternatives. An else-if statement could handle the choices.</p>
+
+      <p>The syntax of an else-if statement is:</p>
+
+      <pre>
+    if ( &lt;<em>condition #1</em>&gt; ) {
+        &lt;<em>statements #1</em>&gt;
+    } else if ( &lt;<em>condition #2</em>&gt; ) {
+        &lt;<em>statements #2</em>&gt;
+    } else {
+        &lt;<em>statements #3</em>&gt;
+    }</pre>
+
+      <p>Each condition must produce a Boolean result. The <strong>FIRST</strong> condition to evaluate to <strong>true</strong> will cause its block of code to execute. If none of
+        the conditions evaluate to true, the code in the else block is execute.</p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 4: Else-If Statement</h4>
+      <pre class="code">
+    if (guess == SECRET_NUM) {		//correct
+        Console.print(&quot;You guessed it!&quot;);
+    } else if (guess &lt; SECRET_NUM) {	//too low
+        Console.print(&quot;Too low.&quot;);
+    } else {				//too high
+        Console.print(&quot;Too high.&quot;);
+    }</pre>
+
+      <p>Note that if a condition is true then only the statements with that condition are executed. None of the other conditions are tested or executed. This is important to keep
+        in mind while choosing the order in which to create your condition statements! The order of your expressions is important because it can affect what statements are
+        executed.</p>
+
+      <h4>Nested If Statements</h4>
+
+      <p>A nested if statement refers to an if statement inside another one. In the example below, The only way the <strong>homeroom == 100</strong> condition is evaluated is if
+        gradeLevel is equal to 10, otherwise it is completely skipped. If gradeLevel is equal to 10,
+        then the program will evaluate the code inside this statement.</p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 5: Nested If Statement</h4>
+      <pre class="code">
+    if (gradeLevel == 10) {
+        if (homeroom == 100) {
+            Console.print(&quot;You are in Homeroom 100.&quot;);
+        } else {
+            Console.print(&quot;Your Homeroom is not listed in Grade 10.&quot;);
+        }
+    }</pre>
+
+
+
+      <h4><img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" /> Check Your Understanding</h4>
+
+      <div class="questions">
+        <ol start="2">
+          <li>
+            <p>Which output statement will be displayed in the Console?</p>
+
+            <pre class="code">
+      boolean socksOn = false;
+
+      if (socksOn) {
+          Console.print(&quot;Put shoes on.&quot;);
+      } else {
+          Console.print(&quot;Put socks on.&quot;);
+      }</pre>
+            <a href="answers/A2answer_2.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a><br />
+            &nbsp;
+          </li>
+          <li>
+            <p>Which output statement will be displayed in the Console?</p>
+
+            <pre class="code">
+      int numStudents = 30;
+
+      if (numStudents &gt; 25) {
+           Console.print(&quot;The number of students is greater than 25.&quot;);
+      } else {
+           Console.print(&quot;The number of students is less than or equal to 25.&quot;);
+      }</pre>
+            <a href="answers/A2answer_3.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+          </li>
+
+          <li>
+            <p>Suppose you wanted to write a selection structure to assign a student a level based on their percentage. Can you spot the problem with the following block of code?
+              How could you rewrite it so it will work properly?</p>
+
+            <pre class="code">
+      if (mark &gt; 50) {
+          grade = &quot;Level 1&quot;;
+      } else if (mark &gt; 60) {
+          grade = &quot;Level 2&quot;;
+      } else if (mark &gt; 70) {
+          grade = &quot;Level 3&quot;;
+      } else if (mark &gt; 80) {
+          grade = &quot;Level 4&quot;;
+      } else {
+          grade = &quot;Below Level 1&quot;;
+      }
+      </pre>
+            <a href="answers/A2answer_4.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+          </li>
+          <li>
+            <p>Which output statement will be displayed in the Console?</p>
+
+            <pre class="code">
+      double bankBalance = 50;
+
+      if (bankBalance &gt; 100) {
+           Console.print(&quot;There is more than $100.00 in this bank account.&quot;);
+      } else if (bankBalance &gt; 0) {
+           Console.print(&quot;There is $100.00 or less in this bank account.&quot;);
+      } else {
+           Console.print(&quot;There are no funds available in this account&quot;);
+      }
+      </pre>
+            <a href="answers/A2answer_5.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+          </li>
+        </ol>
+      </div>
+
+
+      <p></p>
+      <hr />
+
+      <h4>Repetition Control Structure</h4>
+
+      <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <td>
+              <p>The repetition or looping control structure executes the same statement(s) over and over, as long as a condition or set of conditions is satisfied.</p>
+              <p> If the condition is <strong>true</strong>, the statement(s) are executed and then the condition is tested again. </p>
+              <p>If the condition is <strong>false</strong>, the statements after the loop are executed.</p>
+
+              <p>Each execution of a loop is called an <strong>iteration</strong>.</p>
+
+              <p>There are three types of looping statements in Java that you will be introduced to:</p>
+
+              <ul>
+                <li>while</li>
+                <li>do while</li>
+                <li>for</li>
+              </ul>
+            </td>
+            <th>
+              <div><img src="images/A2FlowchartRepetition.png" width=350 /></div>
+
+              <div class="caption">A repetion structure using flowchart notation</div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <table cellpadding="3" cellspacing="0" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <th width="45%">
+              <h4>While Statement</h4>
+            </th>
+            <th width="55%">
+              <h4>Do-While Statement</h4>
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <p>The while statement evaluates a condition and if the condition evaluates to true, it executes one or more statements before looping back to evaluate
+                the condition again. After the condition evaluates to false, the statements are skipped and the loop ends.</p>
+            </td>
+            <td>
+              <p>The do..while loop is similar to a while loop, except that the statements are executed once before the initial evaluation of the condition. After
+                that, the statements are executed only if the condition evaluates to true.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>The syntax of a while statement is:
+              <pre>
+    while ( &lt;<em>condition</em>&gt; ) {
+        &lt;<em>statements</em>&gt;
+    }</pre>
+            </td>
+            <td>The syntax of do-while&nbsp;statement is:
+              <pre>
+    do {
+        &lt;<em>statements</em>&gt;
+    } while ( &lt;<em>condition</em>&gt; );</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>The &lt;<em>condition</em>&gt; must evaluate to a Boolean value - either true or false. This condition is checked <strong>before </strong>any of the
+              statements
+              inside the loop are executed; this means is it possible that the while loop may never execute if the condition is initially false.</td>
+            <td>The &lt;<em>condition</em>&gt; must evaluate to a Boolean value - either true or false. This condition is checked <strong>after</strong> the statements
+              inside the
+              loop are executed; this means that the do-while loop will always execute at least once.</td>
+          </tr>
+          <tr>
+            <td>
+              <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 6: While Statement</h4>
+              <pre class="code">
+    int num = 1;
+    while (num &lt; 100) {
+        num *= 2;
+    }</pre>
+            </td>
+            <td>
+              <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 7: Do-While Statement</h4>
+              <pre class="code">
+    int num;
+    do {
+        num = Console.readInt(&ldquo;Enter a number less than 4&rdquo;);
+    } while (num &gt;= 4);</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/tips.gif" /></th>
+            <td>
+              <ul>
+                <li>The condition must be placed inside parentheses</li>
+                <li>Notice that the while statement DOES NOT end with a semicolon for a while loop, but DOES have a semicolon in a do-while loop!</li>
+                <li>Also note the curly brackets used to denote the code inside the repetition structure.</li>
+                <li>The body of a repetition structure should be indented.</li>
+                <li>The opening curly bracket "{" should be on the same line as the while statement in a while-loop, and the do keyword in a do-while loop.</li>
+                <li>The closing curly bracket "}" is on its own line in a while loop, and is on the same line as the "while" statement in a do-while loop.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>A while loop / do-while loop continues until its condition is false. If the condition never become false, the loop is called an infinite loop (continues forever!!)
+      </p>
+
+      <h4>For Statement</h4>
+
+      <ul>
+        <li>The for statement is a loop structure</li>
+        <li>It executes a set of statements a fixed number of times</li>
+
+        Takes the form:
+        <pre>
+    for ( &lt;<em>initialization</em>&gt;; &lt;<em>condition</em>&gt;; &lt;<em>increment</em>&gt; ) {
+      &lt;<em>statements</em>&gt;
+    }</pre>
+
+        <li><strong>Initialization</strong></li>
+        <ul>
+          <li>The initialization is executed <strong>once</strong></li>
+          <li>Used to set the value of the counter</li>
+          <li>Usually used to declare the counter variable as well</li>
+          <li>Example:
+            <pre>int i = 0;</pre>
+          </li>
+        </ul>
+        <li><strong>Condition</strong></li>
+        <ul>
+          <li>The condition is a Boolean expression</li>
+          <li>Evaluated <strong>before</strong> each loop iteration</li>
+          <li>When true, the statements inside the loop are executed</li>
+          <li>When false, the program flow continues following the "}"</li>
+          <li>Example:
+            <pre>i < 10;</pre>
+          </li>
+        </ul>
+        <li><strong>Increment</strong></li>
+        <ul>
+          <li>After each loop iteration, the increment is executed</li>
+          <li>Example:
+            <pre>i += 1;</pre>
+          </li>
+          <li>This can also be written as:
+            <pre>i++;</pre>
+          </li>
+          <li>The increment can be any arithmetic expression that assigns a new value to the variable</li>
+          <li>You can also decrement the variable instead, using
+            <pre>i -= 1;</pre> or
+            <pre>i--;</pre>
+          </li>
+        </ul>
+      </ul>
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 8: For Statement</h4>
+      <pre class="code">
+  for (int i = 1; i <= 10; i++) {
+    Console.print(i);
+  }</pre>
+
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/tips.gif" /></th>
+            <td>
+              <ul>
+                <li>The variable <strong>i</strong> is declared in the initialization portion of the for loop, which means that the use of the variable is limited
+                  to the loop (called the <em>scope</em> of the variable).</li>
+                <li>Notice that the "for" statement DOES NOT end with a semicolon, but semicolons are used to separate each part of the "for" statement</li>
+                <li>Also note the curly brackets used to denote the code inside the repetition structure.</li>
+                <li>The body of a repetition structure should be indented.</li>
+                <li>The opening curly bracket "{" should be on the same line as the "for" statement</li>
+                <li>The closing curly bracket "}" is aligned with the "for" statement.</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4><img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" />Check Your Understanding</h4>
+
+      <div class="questions">
+        <ol start="6">
+          <li>
+            <p>Identify the error in the while loop code provided</p>
+
+            <pre class="code">
+int num = -1;
+while (num &lt; 0) {
+   num = -1;
+}</pre>
+            <a href="answers/A2answer_6.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a><br />
+            &nbsp;
+          </li>
+          <li>
+            <p>Identify the error in the do-while loop code provided</p>
+
+            <pre class="code">
+int num = 1;
+do {
+     num += 1;
+} while (num &gt; 0);</pre>
+            <a href="answers/A2answer_7.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+          </li>
+          <li>
+            <p>Identify the error in the for loop code provided</p>
+
+            <pre class="code">
+for (int num = 0; num &lt;= 20; num += 2); {
+  Console.print(num);
+}</pre>
+            <a href="answers/A2answer_8.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+          </li>
+          <li>
+            <p>What will be displayed in the Console for the code below?</p>
+
+            <pre class="code">for (int i = 10; i > 0; i--) {
+  if (i == 3) {
+    Console.print("Ignite Engines");
+  } else {
+    Console.print(i);
+  }
+}
+Console.print("Blast Off");</pre>
+            <a href="answers/A2answer_9.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" />
+              Answer</a><br />
+            &nbsp;
+          </li>
+
+
+        </ol>
+      </div>
+
+
+      <h5>Counters, Accumulators and Sentinels</h5>
+
+      <p>Many algorithms require counting and summing of values.</p>
+
+      <table cellpadding="6" cellspacing="2" width="95%">
+        <tbody>
+          <tr>
+            <th width="50%"><strong>Counters</strong></th>
+            <th width="50%"><strong>Accumulators</strong></th>
+          </tr>
+          <tr>
+            <td>
+              <p>Useful for keeping track of the number of times a user enters a value, makes a guess, or types a password.<br />
+                A program that counts the number of values entered by the user is actually counting the number of loop iterations.</p>
+            </td>
+            <td>
+              <p>Used for a wide range of reasons such as finding the total of a list of numbers and calculating your score in your favourite game.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>A statement like this can be used to implement a counter within a loop:
+              <pre>
+numValues += 1;</pre>
+            </td>
+            <td>A statement like this can be used to sum values as they are entered:
+              <pre>
+sumOfValues += newValue;</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>Each time the statement executes, 1 is added to the current value</td>
+            <td>Each time the statement executes, the value of newValue is added to the current sum</td>
+          </tr>
+          <tr>
+            <td>A counter should be initialized when it is declared (set to 0), and then incremented by a fixed amount.</td>
+            <td>An accumulator should be initialized when it is declared</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>A <strong>sentinel</strong> value is a special value that acts as a flag to signify that a condition has been met.&nbsp; Sentinel values are often stored in
+        constants. Sentinels are used in several program structures including if and loops structures.</p>
+
+      <p>The following example demonstrates the use of <b>counters, accumulators and sentinels</b>. </p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 9: The Average Calculator Program</h4>
+
+      <p>Consider a program that allows the user to enter a series of non-zero values. The program will calculate the average (arithmetic mean) of the values entered. In order to
+        do this, the program will have to keep track of the number of values entered.</p>
+
+      <img src="images/A2AverageFlowchart.png" width=600 />
+
+      <pre class="code">
+/*
+ * AverageValue.java
+ * An application for demonstrating the use of counters, accumulators and sentinels.
+ */
+
+package activity2;
+
+import simpleIO.Console;
+
+public class AverageValue {
+
+    public static void main(String[] args) {
+        /* Constants and Variables */
+
+        // acts as a flag, or sentinel to signify that the loop should stop
+        final int SENTINEL = 0;
+
+        int newValue;  //value entered by user
+        int numValues = 0;  //counter
+        int sumOfValues = 0;  //accumulator
+        double average;
+
+        Console.print(&quot;Calculate Average Program&quot;);
+
+        /* Input - Get a set of numbers from user */
+
+        newValue = Console.readInt(&quot;Enter a value (&quot; + SENTINEL + &quot; to quit):&quot;);
+
+        while (newValue != SENTINEL) {
+            numValues += 1; // counter
+            sumOfValues += newValue; // accumulator
+            newValue = Console.readInt(&quot;Enter a value (&quot; + SENTINEL + &quot; to quit):&quot;);
+        }
+
+        /* Guard against run-time error - no calculation if no values were entered */
+        if (numValues == 0) {
+
+          Console.print("No average calculated");
+
+        } else {
+
+          /* Processing - Calculate average of numbers entered by user */
+          average = (double) sumOfValues / numValues;
+
+          /* Output - Displaying results to user */
+          Console.print(&quot;Average is &quot; + Console.roundDouble(average, 2));
+        }
+    }
+}</pre>
+
+      <!-- <h3>Evidence of Learning</h3>
+
+      <hr />
+      <h4 class="h4_assignment_title"><img class="icon" src="../resources/images/dropbox.gif" />Programming Exercises</h4>
+
+      <div class="dropbox">
+        <p>Once you have reviewed the material above complete the following. Place all code in the folder named <b>activity2</b> in your Week 1 Repl.it project</p>
+        <ol>
+          <li><b>Choose a task</b> and create a flowchart using LucidChart that describes how to accomplish that task. Your flowchart should have at least <b>2 decisions</b>, and
+            one of those decisions should <b>loop back</b> to a previous part of the algorithm. Bonus points for humour!</li><br />
+          <li>Cars from an auto manufacturing plant need to be recalled. Model numbers 119, 179, 189 through 195 (inclusive) and 221 have been found to be defective because their
+            wheels are not perfectly round. Create a <b>CarRecall</b> program that allows the mechanic to repeatedly enter in model numbers and be told whether the car is defective
+            or not. The mechanic can stop the application any time by entering a -1.</li>
+          <p>Your output should look something like this:</p>
+          <img src="images/A2CarOutput.png" />
+          <br /><br />
+          <li>The Collatz Conjecture states:
+            <ul>
+              <li>Start with any natural number, N (1, 2, 3, 4, ...).</li>
+              <li>If the number is even, divide it by 2.</li>
+              <li>If the number is odd, multiply by 3 then add 1.</li>
+              <li>If you repeat this process enough times, the number should always reach 1.</li>
+            </ul><br />
+            Describe this algorithm with a <b>flowchart</b>. Make sure you use the correct shapes for different parts of the program! <br /><br />
+            Create a <strong>Collatz</strong> application that tests this conjecture by allowing the user to enter a number, and then apply the Collatz algorithm
+            until the number reaches 1. Print the result of each step to the screen.</li>
+
+          <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+            <tr>
+              <td>
+                <li>Create a <b>Summation</b> program that asks the user for a starting number and an ending number. The program should calculate the sum of the numbers using an
+                  accumulator inside a for loop and print the final sum outside the loop. <br /><br /><i>Bonus: how could you handle situations where the user gives the numbers in
+                    the wrong order? What happens if they enter the same number twice? Can you create a program that will gracefully handle all these scenarios?</i></li>
+              </td>
+              <th>
+                <img src="images/A2Summation.png" />
+
+              </th>
+            </tr>
+          </table>
+
+        </ol>
+
+      </div> -->
+    </div>
+  </body>
+
+</html>

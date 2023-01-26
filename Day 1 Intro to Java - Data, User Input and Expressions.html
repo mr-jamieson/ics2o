@@ -1,0 +1,1073 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta property="og:title" content="Day 1: Intro to Java - Data, User Input and Expressions">
+    <title>Day 1: Intro to Java - Data, User Input and Expression</title>
+    <link href="../resources/course_techno.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="header"><img alt="VA Logo" class="logo" src="../resources/images/VA%20Logo.png" />
+        <div class="courseTitle">ICS4U: Computer Science, Grade 12, University Preparation</div>
+
+        <h1>Week 1: Grade 11 Review</h1>
+
+        <h2>Activity 1: Intro to Java - Data, User Input and Expressions</h2>
+      </div>
+
+      <h3>Lesson Material</h3>
+      <hr />
+
+      <h4>Why Program in Java?</h4>
+      <p>Java is an object-oriented programming language. <em>Object-Oriented Programming</em> (OOP) evolved out of the need to develop complex programs in a systematic, modular
+        approach.</p>
+      <ul>
+        <li>OOP programmers create modules, called <strong>classes</strong> that can be used over and over in a variety of programs</li>
+        <li>A class groups related data and the instructions for performing actions on that data</li>
+        <li>The Java Platform runs on <strong>all major operating systems</strong> allowing Java applications to run on just about any computer (known as <em>platform-independent
+            applications</em>)</li>
+      </ul>
+      <h5>Objects, Classes, Packages &amp; Applications</h5>
+      <ul>
+        <li>OOP development involves selecting objects to perform tasks outlined in program specification</li>
+        <li>An object consists of:</li>
+        <ul>
+          <li>Related data</li>
+          <li>Instructions for performing actions on that data</li>
+        </ul>
+        <li>A class</li>
+        <ul>
+          <li>Defines the type of data and actions that will be associated with an object of that class (but not the actual data for an individual object)</li>
+          <li>Is required to create objects</li>
+          <li>A class can be used to create many objects &ndash; each object will have the same type of data and possible actions, but each object maintains its own set of data.
+          </li>
+        </ul>
+      </ul>
+      <p><img src="images/A1ClassObjects.jpg" alt="Class: DVD.  Attributes: title, genre, year, onLoad; method: loadToFriend()"
+          title="Class: DVD.  Attributes: title, genre, year, onLoad; method: loadToFriend()" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"
+          data-d2l-editor-default-img-style="true" /></p>
+      <ul>
+        <li>A package (sometimes called a library) is a group of related classes</li>
+        <ul>
+          <li>Here is an illustration of a DVD class and a CD class put into a Media Package:</li>
+        </ul>
+      </ul>
+      <p><img src="images/A1Package.jpg" alt="Media Package containing DVD class and CD class" title="Media Package containing DVD class and CD class"
+          style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" data-d2l-editor-default-img-style="true" /></p>
+      <ul>
+        <li>A Java Application is a package with at least one class that contains a <strong>main()</strong> method.</li>
+      </ul>
+      <p><img src="images/A1Application.jpg" alt="Package containing a Java Application" title="Package containing a Java Application"
+          style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" data-d2l-editor-default-img-style="true" /></p>
+      <ul>
+        <li>Classes are importable - an application can use existing classes from another package by using the <strong>import</strong> keyword</li>
+      </ul>
+      <h4>Your First Java Application</h4>
+      <p>The following HelloWorld application is a simple, yet complete, Java program:</p>
+
+      <p id="JavaCode"><img src="images/A1FirstApplication_annotated.jpg" alt="A first Java Application" title="A first Java Application"
+          style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;" data-d2l-editor-default-img-style="true" /></p>
+      <h5>The Parts of a Java Application</h5>
+      <h6>Statements</h6>
+      <ul>
+        <li>The set of instructions that make up the program</li>
+        <li>Each statement ends with a semi-colon ;</li>
+        <li>Related statements are enclosed in a curly bracket {}</li>
+        <li>In our application the statements are</li>
+        <ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif;">package activity1;</span></li>
+          <ul>
+            <li>declares a package name, if undeclared it will be <strong>default</strong>.</li>
+            <li>not usually included in simple applications</li>
+          </ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif;">import simpleIO.*;</span></li>
+          <ul>
+            <li>makes available a Utility class, <strong>Console</strong>, to simplfy the process of obtaining user input and output</li>
+          </ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif;">public class HelloWorld</span></li>
+          <ul>
+            <li>class declaration</li>
+            <li>the class is available to everyone (<span style="font-family: 'courier new', courier, sans-serif;">public</span>)</li>
+            <li>it is called HelloWorld, and contained in a file named "<strong>HelloWorld.java</strong>"</li>
+            <li>no objects or actions are defined by the class (we will get to this later)</li>
+            <li>it does contain a main method (which is where the program will start)</li>
+          </ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif;">public static void main(String[] args)</span></li>
+          <ul>
+            <li>defines the <strong>main</strong> method</li>
+            <li>a method is a named set of statements that perform a single, well-defined task</li>
+            <li>the method is available to everyone (<span style="font-family: 'courier new', courier, sans-serif;">public</span>)</li>
+            <li>it is a class method - doesn't need an object to be created to use it (<span style="font-family: 'courier new', courier, sans-serif;">static</span>)</li>
+            <li>it returns no value (<span style="font-family: 'courier new', courier, sans-serif;">void</span>)</li>
+            <li>it can optionally accept a list of words as command-line arguments (<span style="font-family: 'courier new', courier, sans-serif;">String[] args</span>)</li>
+          </ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif;">Console.<em>print</em>("Hello World");</span></li>
+          <ul>
+            <li>Uses the <span style="font-family: 'courier new', courier, sans-serif;">print()</span> method of the <strong>Console</strong> class to write text to the standard
+              output.</li>
+          </ul>
+        </ul>
+      </ul>
+      </ul>
+      <h6>Comments</h6>
+      <ul>
+        <li>Comments provide information about the program to the reader of the code</li>
+        <li>Comments have no effect on how the program runs</li>
+        <li>Allow the reader to quickly understand the purpose and logic behind segments of code</li>
+        <li>Complex applications are often developed and maintained by more than one programmer, properly commented code allows for easier modifications and can decrease the number
+          of mistakes</li>
+        <li>Java programs can contain three types of comments:</li>
+        <ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif; color: #6aa84f;"><strong>/* */</strong></span></li>
+          <ul>
+            <li>Enclose single or multi line comments at the beginning of a program to describe the application or inside to clarify a segment of code</li>
+          </ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif; color: #6aa84f;"><strong>//</strong></span></li>
+          <ul>
+            <li>Used for adding a comment to a specific statement or for a single line comment -- Useful for debugging</li>
+          </ul>
+          <li><span style="font-family: 'courier new', courier, sans-serif; color: #597eaa;"><strong>/** */</strong></span></li>
+          <ul>
+            <li>Used for documentation</li>
+            <li>The javadoc tool copies these comments into a separate HTML document to create an instruction manual or external documentation</li>
+            <li>These are appropriate for describing a class or method</li>
+          </ul>
+        </ul>
+      </ul>
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/tips.gif" /></th>
+            <td>
+              <p><strong>Code conventions</strong> are a set of guidelines for writing an application. They provide details about commenting, rules for naming methods, classes, and
+                packages, and statement formatting. They make programs easier to read and understand. Organizations that employ programmers often not only encourage the use of code
+                conventions, but require it.</p>
+              <p>Through this course, code conventions will be introduced as needed. It is important that you pay attention to these conventions and use them when you write your
+                code.</p>
+              <ul>
+                <li>A Program Header should begin a program.</li>
+                <ul>
+                  <li>The comment should include information such as your name, class name, the date, and a brief statement about the program</li>
+                </ul>
+                <li>Package names should begin with a lowercase letter and then an uppercase letter should begin each word within the name, no spaces!</li>
+                <li>Class names should be nouns and begin with an uppercase letter and an uppercase letter should begin each word within the name, no spaces!</li>
+                <li>A comment block should be included before each class and method.</li>
+                <ul>
+                  <li>Not typically placed before the main() method</li>
+                </ul>
+                <li>An open curly brace <strong>{</strong> should be placed on the same line as the class or method declaration, and the closing curly brace <strong>}</strong>
+                  should be on a separate line and aligned with the class or method declaration</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p></p>
+      <hr />
+
+      <h4>Variables</h4>
+      <ul>
+        <li>A variable is a name for a value stored in memory</li>
+        <li>Variables are used in programs so that values can be represented with meaningful names</li>
+        <li>Variables should be used to represent values because they make code easier to read, understand and modify</li>
+      </ul>
+
+      <h5>Declaring Variables</h5>
+      <ul>
+        <li><strong>Declaration</strong>: A variable must be declared before it is used. This is the form:</li>
+      </ul>
+      <pre style="padding-left: 60px;">&lt;type&gt; &lt;name&gt;</pre>
+      <p style="padding-left: 60px;">&lt;type&gt; is the data type (determines the type of data the variable will store)<br />&lt;name&gt; is the identifier (the variable name
+        &ndash; should be descriptive)</p>
+      <ul>
+        <li>To declare a variable named <strong>length</strong> that will hold an integer (positive or negative whole number), you would type:</li>
+      </ul>
+      <pre style="padding-left: 60px;">int length;</pre>
+      <ul>
+        <li>Multiple variables with the same type can be declared in a single statement, similar to:</li>
+      </ul>
+      <pre style="padding-left: 60px;">int length, width;</pre>
+      <h5>Using Variables</h5>
+      <ul>
+        <li>Applications typically contain many variables, to hold values that are needed for calculations, and the results of those calculations:</li>
+      </ul>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 1: The RectangleArea program</h4>
+
+      <p>Consider the following program in Java:</p>
+      <pre class="code">import simpleIO.*;
+
+/**
+* Calculates and displays the area of a rectangle.
+*/
+
+public class RectangleArea {
+  public static void main(String[] args) {
+
+    //Variable Declaration and Initialization
+    int length = 10, width = 2;
+    int area;
+
+    //Processing: Use area formula
+    area = length * width;
+
+    //Output the calculated area
+    Console.print("Area of rectangle: " + area);
+  }
+}</pre>
+  <p>Some important terminology to note:</p>
+      <ul>
+        <li><strong>Assignment</strong>: an assignment statement is formed with the variable name on the left and the value on the right of an equal sign. The value on the right can be a literal (actual value, ie. 5), or another variable or expression (ie. length*width)</li>
+        <li><strong>Initialization</strong>: An assignment statement can be part of a variable declaration. In this case, the variable is initialized. For instance, length and width were both initialized (assigned values) when they were declared.</li>
+        <li><strong>Concatenation</strong>: To append, or concatenate, the value of a variable to a String, the <b>+</b> operator is used. The result is then passed into the <tt>Console.print()</tt> statement for the user to read. </li>
+      </ul>
+      <p><strong>It is important to realize that a variable can store only one value at any one time</strong>. For example, after the following statements execute:</p>
+      <pre style="padding-left: 60px;">int x;
+x = 5;
+x = 10;</pre>
+      <p style="padding-left: 30px;">the value of x is 10, because this was the last value assigned.</p>
+
+      <h4>Constants</h4>
+      <ul>
+        <li>A constant is a name for a memory location that stores a value that cannot be changed from its initial assignment</li>
+        <li>Using constants is considered good programming style</li>
+        <li>Use the keyword <span style="font-family: 'courier new', courier, sans-serif;"><strong>final</strong> </span>to define a constant,&nbsp;</li>
+      </ul>
+      <pre style="padding-left: 60px;">final int SCREEN_WIDTH = 800;
+final double PI = 3.14159265358979;</pre>
+      <ul>
+        <li>A constant can be assigned a value only once</li>
+      </ul>
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/tips.gif"  /></th>
+            <td>
+              <p><b>Naming Variables &amp; Constants</b></p>
+              <ul>
+                <li>Variable &amp; constant names <strong>must</strong> begin with a letter, and may contain letters, numbers, _, and&nbsp;$</li>
+                <li>Begin variable names with a lowercase letter, and then an uppercase letter should begin each word within the name, no spaces!</li>
+                <li>Constant names should be all uppercase with an underscore between words if necessary</li>
+                <li><em>Don't</em> use the same variable name with different cases.</li>
+                <ul>
+                  <li>For example, lastname and lastName are considered to be two different variables in Java because of the fact the letter &ldquo;N&rdquo; is in a different
+                    case.&nbsp;</li>
+                </ul>
+                <li><em>Don't</em> use&nbsp;reserved words and keywords (they will turn into a different colour if you type them in) of the Java language.</li>
+                <ul>
+                  <li>Examples of reserved or keywords in Java are: <strong>if, else, do, while, continue, break, case, switch, void, null</strong></li>
+                </ul>
+                <li>Grouping variables together in a single statement is good programming style as long as variables represent related items, not just because they happen to be the
+                  same type.</li>
+                <li>Group all variable declarations at the beginning of a method. Follow the declarations with a single blank line.</li>
+                <li>Constant declarations should be grouped at the beginning of a method <strong>before</strong> any variable declarations</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <h4>Data Types</h4>
+
+      <p>Data types describe the kind of data a variable or constant can store. Java provides built-in data types, but you can also define your own data types by using classes.</p>
+
+      <p>Simple or <strong>primitive data types</strong> represent a single piece of information, for example, a single number or a single sequence of text. Working with primitive
+        values is usually faster than working with complex values, because<em> Java</em> stores primitive values in a special way that makes memory and speed optimizations
+        possible.</p>
+
+      <table border="1" cellpadding="6" cellspacing="0" class="CenterTable" summary="This table is for formatting purposes." width="95%">
+        <tr>
+          <td colspan="4"><strong>Basic or Primitive Data Types</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Data Type</strong></td>
+          <td><strong>Size</strong></td>
+          <td><strong>Explanation</strong></td>
+          <td><strong>Example</strong></td>
+        </tr>
+        <tr>
+          <td>byte</td>
+          <td>1&nbsp;byte<br />8 bits</td>
+          <td>Any integer from -128 to 127</td>
+          <td>
+            <pre>byte myByte = 12;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>short</td>
+          <td>2&nbsp;bytes</td>
+          <td>Any integer from -32,768 to 32,767, inclusive</td>
+          <td>
+            <pre>short myShort = 3546;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>char</td>
+          <td>2&nbsp;bytes</td>
+          <td>1 alphanumeric character</td>
+          <td>
+            <pre>char myChar = &#39;r&#39;;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>int</td>
+          <td>4&nbsp;bytes</td>
+          <td>Any integer (whole numbers - no decimals), positive or negative values from 2,147,483,648 (-2<sup>31</sup>) to 2,147,483,647&nbsp;(2<sup>31</sup>&nbsp;-&nbsp;1),
+            inclusive</td>
+          <td>
+            <pre>int myValue = -8;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>long</td>
+          <td>8&nbsp;bytes</td>
+          <td>Large integers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807, inclusive</td>
+          <td>
+            <pre>long myLong = 435433469360l;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>float</td>
+          <td>4&nbsp;bytes</td>
+          <td>Decimal numbers with less precision (32-bit double-precision format: 1 sign bit, 8 for exponent, 23 for significand).</td>
+          <td>
+            <pre>float myFloat = 3.65f;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>double</td>
+          <td>8&nbsp;bytes</td>
+          <td>Decimal numbers up to 300 figures using the 64-bit double-precision format:
+            <ul>
+              <li>1 bit is used to designate whether the number is positive or negative.</li>
+              <li>11 bits are used for the exponent that is stored as base 2.</li>
+              <li>52 bits are used to store the significand, which is the number that is raised to the power indicated by the exponent.</li>
+            </ul>
+          </td>
+          <td>
+            <pre>double myDouble = 1.5436;</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>boolean</td>
+          <td>1&nbsp;bit</td>
+          <td>true or false</td>
+          <td>
+            <pre>boolean jumping = false;</pre>
+          </td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>When choosing a data type, always choose the most appropriate type for the quantity being represented, for two main benefits:</li>
+        <ul>
+          <li>Both the compiler and reader will understand the possible values for a variable</li>
+          <li>The compiler allocates the appropriate memory for the variable</li>
+        </ul>
+      </ul>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 2: Precision of Floating-Point Numbers</h4>
+
+      <p>Both <code>double</code> and <code>float</code> are considered floating point numbers. Consider the following code that calculates a number by squaring its square root.
+        The difference in these values is due to the rounding error in Java.</p>
+
+      <pre class="code">
+    Console.print(&quot;Double Precision:&quot;);
+    double num = 2.0;
+    double sqrtNum = Math.sqrt(num);
+    double square = sqrtNum * sqrtNum;
+
+    Console.print("Original number: " + num);
+    Console.print("After Calculation: " + square);
+    Console.print("Error: " + (square - num));
+      </pre>
+
+      <p>Run the program to see the limitations of using floating-point numbers.</p>
+
+
+
+      <h4>Strings: Compound Data Types</h4>
+
+      <p>Strings are comprised of a set of characters, and therefore cannot be represented by a primitive data type. They are instead considered Compound, or Abstract Data Types
+        (ADTs). String variables are actually instances of the
+        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" target=_blank>String</a> class (defined in the java.lang package), although we rarely declare them
+        as such. Wrapper classes (<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html" target=_blank>Integer</a>, <a
+          href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html" target=_blank>Double</a>, <a
+          href="https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html" target=_blank>Boolean</a>, etc) are also considered ADTs.</p>
+
+      <p>The following statements are equivalent in Java:</p>
+
+      <pre class=code>String course = "Computer Science";</pre>
+
+      <pre class=code>String course = new String("Computer Science");</pre>
+
+
+      <p></p>
+      <hr />
+      <h4>User Input</h4>
+
+      <p>Just as a computer incorporates the input-processing-storage-output model, individual programs incorporate this model as well. The programs we have written so far have
+        begun with some values (the input), have made calculations (the processing), have kept track of the results (the temporary storage) and have sent the processed data to the
+        screen (the output). The only problem we have with these programs is that the input can&#39;t be easily changed; the values of each variable are always going to be what the
+        programmer assigned them to be.</p>
+
+      <p>The user is the person using the computer program and the user needs to interact with the program in order to make the program useful. When programming, the programmer
+        must realize that s/he is not the user of the program. The user is the person who interacts with the program for his/her own use. In order for the program to be useful,
+        there must be a way for the user to interact with the program.</p>
+
+      <p>There are several ways to interact with a program, like clicking the mouse on certain parts of the program or entering information using the keyboard. In the last two
+        activities, you have created programs that did not require the user to interact with the program at all. In this activity, you will have the user interact with the program
+        by inputting information into it by using the keyboard.</p>
+
+      <h5>The Console Class</h5>
+
+      <p>As seen in Activity 1, a <strong>Console </strong>class has been provided in the <strong>simpleIO </strong>package to make the process of outputting information to the
+        screen easier for the beginning programmer. In addition to providing methods that output information to the Console, there are also methods provided that allow the
+        programmer to obtain <strong>user input </strong>as well.</p>
+
+      <p><em>It is important to note that this class is NOT included in the standard Java library; it was created by your teacher to make your life easier! By the end of the
+          course, you should be able to create your own Input/Output class, with the methods that you would find useful in your programs.</em></p>
+
+      <p>To view a full list and explanations of the methods provided by the Console class, a special document, call the JavaDoc, has been created for your reference.&nbsp; Note
+        that this document was created automatically, simply by using the documentation comments as method headers in the <strong>Console.java</strong> file.</p>
+
+      <table class="externallink">
+        <tbody>
+          <tr>
+            <th><img alt="external link icon" class="icon" src="../resources/images/external_links.gif" /></th>
+            <td>
+              <p>Click here for the <a href="../javadoc/simpleIO/Console.html" target="_blank">Console class documentation</a>.</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The four methods that will allow you to obtain input from the user are:</p>
+      <ul>
+        <li><tt>Console.readString(String prompt)</tt></li>
+        <li><tt>Console.readInt(String prompt)</tt></li>
+        <li><tt>Console.readDouble(String prompt)</tt></li>
+        <li><tt>Console.readChar(String prompt)</tt></li>
+      </ul>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 3: Obtaining input from the User</h4>
+
+      <p>Below are some examples of how you might use each input method in a program:</p>
+
+      <pre class=code>
+String name = Console.readString("What is your name?");
+
+int age = Console.readInt("How old are you?");
+
+double price = Console.readDouble("How much is that doggy in the window?");
+
+char userContinue = Console.readChar("Do you want to continue? Y/N")</pre>
+
+      <p>All of these methods <strong>return a value</strong>; this means that writing them on their own will not do much, you must do something with the value, such as storing it in a variable of the required type. The <strong>prompt</strong> that you must write should be a short message to the user indicating what sort of value you are expecting from them.</p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 4: The RectangleArea program, revisited</h4>
+
+      <p>Below is a simple example of the <strong>readInt</strong> method being used:</p>
+
+      <pre class="code">
+import simpleIO.*;
+
+/**
+* Calculates and displays the area of a rectangle.
+*/
+
+public class RectangleArea {
+  public static void main(String[] args) {
+
+    //Variable Declaration
+    int length, width, area;
+
+    //Program Description
+    Console.print(&quot;This program will determine the area of a rectangle&quot;);
+
+    //Input
+    length = Console.readInt(&quot;Enter the length of the rectangle&quot;);
+    width = Console.readInt(&quot;Enter the width of the rectangle&quot;);
+
+    //Processing
+    area = length * width;
+
+    //Output
+    Console.print(&quot;The area of rectangle entered is: &quot; + area + &quot; square units&quot;);
+  }
+}</pre>
+
+      <p>Notice that the Console.readInt(&quot;...&quot;) part of the code is on the <strong>right side </strong>of an <strong>assignment statement</strong>. This will initialize the variable (give it a value) to the number that the user types in.&nbsp; Unlike the Console.print(&quot;...&quot;) method, you would rarely ever see this method used on its own, without being assigned to a variable, used in a calculation or as an input to another method.</p>
+
+
+      <!-- PLACE WITH DECISION/REPETIITON -->
+      <!-- <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <td>
+              <p>Another important distinction about Strings and Compound data types is how the relational operator <tt>==</tt> works. </p>
+
+              <p>The <tt>==</tt> operator compares the object references (the addresses of the locations of the objects in memory) and tests them for equality, not the content of
+                the object. </p>
+
+              <p>When testing Strings (or other objects) for equality, you should always use the <tt>equals()</tt> method.</p>
+
+              <p>A good practice when designing your own objects would be to <b>override</b> the <tt>equals()</tt> method and provide your own way of determining if two objects are
+                equal.</p>
+            </td>
+            <th>
+              <img src="images/A1StringEquals.png" />
+
+            </th>
+          </tr>
+        </tbody>
+      </table> -->
+
+      <p></p>
+      <hr />
+      <h4>Numeric Expressions</h4>
+      <ul>
+        <li>Java includes built-in arithmetic operators for addition (+), subtraction (-), multiplication (*), division (/), and modulus division (%)</li>
+        <li>These are for use with primitive data</li>
+        <li>A numeric expression contains at least one operand (value), and may contain operators (+ - * / %)</li>
+      </ul>
+      <pre style="padding-left: 60px;">area = length * width;</pre>
+      <ul>
+        <li><strong>Different types of Division</strong>: the / division operator performs differently depending on the data type of the operands</li>
+      </ul>
+      <table style="border: 1px solid #000000;" rules="cols">
+        <tbody>
+          <tr>
+            <td width="50%"><strong>Integer Division</strong> &ndash; truncates the decimal portion of the answer (both operands are integers)</td>
+            <td width="50%"><strong>Real Division</strong> &ndash; returns entire quotient (IMPORTANT: one or both MUST be floating-point)</td>
+          </tr>
+          <tr>
+            <td>
+              <p><span style="font-family: 'courier new', courier, sans-serif;">int a = 20;<br />int b = 7;<br />int result;<br />result = a/b;</span></p>
+              <p><span style="font-family: 'courier new', courier, sans-serif;">Console.print(result);</span></p>
+            </td>
+            <td>
+              <p><span style="font-family: 'courier new', courier, sans-serif;">double a = 20;<br />int b = 7;<br />double result;<br />result = a/b;</span></p>
+              <p><span style="font-family: 'courier new', courier, sans-serif;">Console.print(result);</span></p>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Output: 2</strong></td>
+            <td><strong>Output:&nbsp;2.857142857142857</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <ul>
+        <li><strong>Modulus Division</strong>: returns the remainder resulting from division. <b>The % operator truncates the operands</b>, if necessary, and returns an integer
+        </li>
+      </ul>
+      <table width="50%" style="border: 1px solid #000000;">
+        <tbody>
+          <tr>
+            <td><strong>Modulus Division</strong> &ndash; returns the remainder resulting from integer division</td>
+          </tr>
+          <tr>
+            <td>
+              <p><span style="font-family: 'courier new', courier, sans-serif;">int a = 20;<br />int b = 7;<br />int result;<br />result = a%b;</span></p>
+              <p><span style="font-family: 'courier new', courier, sans-serif;">Console.print(result);</span></p>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Output: 6</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Operator Precedence</h4>
+      <ul>
+        <li>Java uses a specific order of operations based on operator precedence</li>
+        <li>Multiplication and division have the highest precedence, followed by addition and subtraction</li>
+        <li>You can alter the order of operations by using parentheses as in math!</li>
+        <ul>
+          <li>Ex) 6 + 4 * 2 &ndash; 1 evaluates to 13</li>
+          <li>Ex) (6+4) * (2-1) evaluates to 10</li>
+        </ul>
+        <li>It is considered good programming style to include brackets where there is any possibility of ambiguity or question about the expression</li>
+      </ul>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 5</h4>
+
+      <p>The statement:</p>
+
+      <pre class=code>answer = 18 / 3 - 2 + 4 * 2;</pre>
+
+      <p>is evaluated as follows:</p>
+
+      <p>18 / 3 - 2 + 4 * 2<br />
+        = 6 - 2 + 4 * 2<br />
+        = 6 - 2 + 8<br />
+        = 4 + 8<br />
+        = 12</p>
+
+      <h4><img alt="Tips icon" src="../resources/images/tips.gif" style="width: 42px; height: 42px;" /> Tip</h4>
+
+      <blockquote>
+        <p>When coding numeric expressions, it is a good idea to use <em>parentheses</em> if you are unsure about the order of operations. This will help to ensure that you are
+          getting the calculation that you want.</p>
+      </blockquote>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 6</h4>
+
+      <p>If the statement in Example 4 were rewritten to include parentheses, as in</p>
+
+      <pre class=code>answer = 18 / (3 &ndash; 2) + 4 * 2;</pre>
+
+      <p>then it would be evaluated as follows:</p>
+
+      <p>18 / (3 &ndash; 2) + 4 * 2<br />
+        = 18 / 1 + 4 * 2<br />
+        = 18 + 4 * 2<br />
+        = 18 + 8<br />
+        = 26</p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 7: Determining the Date of Easter</h4>
+
+      <p>The date of Easter Sunday can vary widely from year to year. The Council of Nicaea in A.D. 325 decreed that Easter Sunday was to be held on the first Sunday following the
+        full moon that occurred on or after the first day of spring. Because the date depends on solar, lunar, and calendar cycles, it is not easy to find an arithmetic procedure
+        that will determine the correct date for any given year.</p>
+
+      <p>The first such procedure was determined in 1876; an adaptation of that procedure is given below. It involves a sequence of divisions that start with the year, and
+        eventually produce a month number (3 for March, 4 for April) and the day of the month.</p>
+      <img src="images/A1EasterCalculation1.jpg" />
+      <p>The Java implementation of the algorithm is shown below</p>
+
+      <pre class="code">
+// a - m - the quotients and remainders needed
+int a, b, c, d, e, f, g, h, i, j, k, m, p;
+int month; // Easter month
+int day; // Easter day
+int year; // Easter&#39;s year
+
+// Prompt user for year
+year = Console.readInt(&quot;Easter Date Calculator\nPlease enter a year&quot;);
+
+// Calculations
+a = year % 19;
+b = year / 100;
+c = year % 100;
+d = b / 4;
+e = b % 4;
+f = (8 + b) / 25;
+g = (b - f + 1) / 3;
+h = (19 * a + b - d - g + 15) % 30;
+i = c / 4;
+k = c % 4;
+j = (32 + 2 * e + 2 * i - h - k) % 7;
+m = (a + 11 * h + 22 * j) / 451;
+month = (h + j - 7 * m + 114) / 31;
+p = (h + j - 7 * m + 114) % 31;
+day = p + 1;
+
+Console.print(&quot;Easter will fall on Sunday, &quot; + year + &quot;-&quot; + month + &quot;-&quot; + day);
+</pre>
+
+      <h4>Assignment Operators</h4>
+
+      <p>In an assignment statement, the expression on the right side of the equal sign is evaluated first, and then that value is given to the variable on the left side. It is
+        possible to use the current value of the variable in the expression itself</p>
+
+      <pre>
+counter = 12;		//counter is assigned 12
+counter = counter + 2;	//counter is now 14</pre>
+
+      <p>Changing the value of a variable based on its current value is common, so there is a shortcut. Java recognizes =, and also +=, -=, *=, /=, and %= assignment operators</p>
+
+      <pre>
+counter += 2;		//same as 2nd statement above</pre>
+
+      <p>The following table shows a few examples of the assignment operator:</p>
+
+      <table cellpadding="3" cellspacing="1" summary="This table is for formatting purposes." width="90%">
+        <tbody>
+          <tr>
+            <th>Shortcut</th>
+            <th>Long Way</th>
+            <th>Explanation</th>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+counter += 2;</pre>
+            </td>
+            <td>
+              <pre>
+counter = counter + 2;</pre>
+            </td>
+            <td>Replace &ldquo;counter&rdquo; with its current value plus 2</td>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+numPlayers -= 3;</pre>
+            </td>
+            <td>
+              <pre>
+numPlayers = numPlayers - 3;</pre>
+            </td>
+            <td>Replace &ldquo;numPlayers&rdquo; with its current value minus 3</td>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+numCopies *= 5;</pre>
+            </td>
+            <td>
+              <pre>
+numCopies = numCopies * 5;</pre>
+            </td>
+            <td>Replace &ldquo;numCopies&rdquo; with its current value times 5</td>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+total /= 2;</pre>
+            </td>
+            <td>
+              <pre>
+total = total / 2;</pre>
+            </td>
+            <td>Replace &ldquo;total&rdquo; with its current value divided by 2</td>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+remainder %= 6;</pre>
+            </td>
+            <td>
+              <pre>
+remainder = remainder % 6;</pre>
+            </td>
+            <td>Replace &ldquo;remainder&rdquo; with the remainder when the current value is divided by 6</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Increment / Decrement operators</h4>
+
+      <p>A common task for programmers is to have a variable that either counts up or counts down. To further simplify this process, Java offers two unary operators that will
+        increment or decrement the value that is stored in a variable.</p>
+
+      <table cellpadding="3" cellspacing="1" summary="This table is for formatting purposes." width="90%">
+        <tbody>
+          <tr>
+            <th>Unary Operator</th>
+            <th>Assignment Operator</th>
+            <th>Long Way</th>
+            <th>Explanation</th>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+counter++;</pre>
+            </td>
+            <td>
+              <pre>
+counter += 1;</pre>
+            </td>
+            <td>
+              <pre>
+counter = counter + 1;</pre>
+            </td>
+            <td>Replace &ldquo;counter&rdquo; with its current value plus 1</td>
+          </tr>
+          <tr>
+            <td>
+              <pre>
+counter--;</pre>
+            </td>
+            <td>
+              <pre>
+counter -= 1;</pre>
+            </td>
+            <td>
+              <pre>
+counter = counter - 1;</pre>
+            </td>
+            <td>Replace &ldquo;counter&rdquo; with its current value minus 1</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <h4><img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" /> Check Your Understanding</h4>
+
+
+      <div class="questions">
+        <ol>
+          <li>Write a <strong>programming statement</strong> using mathematical operators and variables to calculate the total cost for your lunch at a restaurant. Remember that
+            Java follows the order of operations and as a result, it may be necessary to include brackets.</li>
+
+          <p>Costs to Include:</p>
+
+          <p>Meal = $9.99</p>
+
+          <p>Drink = $1.50</p>
+
+          <p>HST = 13%</p>
+          <br />
+          <a href="answers/A1answer_1.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+
+          <li>
+            <p>Determine the output that will be produced as a result of the execution of these programming statements.</p>
+
+            <p>What final value will be stored in the variable <strong>score</strong>?</p>
+
+            <pre>
+      int score;
+      score = 10;
+      Console.print(&quot;answer1: &quot; + score);
+      score = score + 2;
+      Console.print (&quot;answer2: &quot; + score);
+      score++;
+      Console.print (&quot;answer3: &quot; + score);
+      score = score - 5;
+      Console.print (&quot;answer4: &quot; + score);
+      score--;
+      Console.print (&quot;answer5: &quot; + score);
+      score = score * 2;
+      Console.print (&quot;answer6: &quot; + score);
+      score = score % 5;
+      Console.print (&quot;answer7: &quot; + score);
+      score += 7;
+      Console.print (&quot;answer8: &quot; + score);
+      score -= 2;
+      Console.print (&quot;answer9: &quot; + score);
+      score *= 2;
+      Console.print (&quot;answer10: &quot; + score);
+      score /= 2;
+      Console.print (&quot;answer11: &quot; + score);
+      score %= 2;
+      Console.print (&quot;answer12: &quot; + score);
+      </pre>
+            <a href="answers/A1answer_2.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a><br />
+            &nbsp;
+          </li>
+        </ol>
+      </div>
+
+      <h4>Type Conversion</h4>
+
+      <p>A <strong>type conversion</strong> occurs when a value is changed into a value of a different data but compatible type.</p>
+
+
+      <p><strong>Automatic Conversion (Coercion)</strong></p>
+
+      <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <th>
+              <img src="images/A1WideningConversion.png" />
+              <div class="caption">Widening Conversion - casting not needing when converting from left to right </div>
+            </th>
+            <td>
+              <p><strong>Automatic conversion</strong> (also called Implicit Conversion) is performed by <em>Java</em> at run time. For example, when a value of a 'smaller' numeric
+                type is assigned to a variable of a 'larger' numeric type, the numeric types are implicitly converted. This is also referred to as 'widening' type conversion. The
+                following picture illustrates widening conversion:</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Explicit Conversion (Casting)</strong></p>
+
+      <p>A programmer can use program code to tell the compiler to treat a variable of one data type as if it belongs to a different data type. You do this by enclosing the new
+        type in parentheses and placing the name of the variable after the parentheses.</p>
+
+      <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <td>
+              <p>Explicit casting is required when you are assigning a value of 'larger' data type to a 'smaller' data type. This is also referred to as 'narrowing' type
+                conversion. The following picture illustrates narrowing conversion:</p>
+            </td>
+            <th>
+              <img src="images/A1NarrowingConversion.png" />
+
+              <div class="caption">Narrowing Conversion - always cast when converting from left to right</div>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <table class="didyouknow">
+        <tbody>
+          <tr>
+            <th><img src="../resources/images/did_you_know.gif" alt="Did you know icon" title="Did you know icon" /></th>
+            <td>
+              <p>While it is possible to convert Strings to other data types, you cannot use a casting operator to do this. Instead, you will make use of conversion methods
+                provided by the String class, or other Wrapper classes.</p>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 8: Explicit vs Implicit Conversion</h4>
+
+      <p>A common task for programmers is to convert your <strong>double</strong> data types to <strong>int</strong> or <strong>long</strong>, or to convert your
+        <strong>int</strong> or <strong>long</strong> data types to <strong>double</strong>. This can be accomplished in a number of ways.</p>
+      <table width="95%" cellpadding="6" summary="This table is for formatting purposes." cellspacing="0" class="CenterTable"
+        style="border-left: 1px solid #000; border-bottom: 1px solid #000;">
+
+
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #000; border-left: none; border-bottom: none;"><strong>double</strong> to <strong>int</strong> or
+              <strong>long</strong> <br /><br /> (Explicit Conversion)</td>
+            <td style="border: 1px solid #000; border-left: none; border-bottom: none;">
+              <ol>
+                <li>If you have a value stored in a variable declared as type <strong>double</strong>, you can assign it to a variable of type <strong>int</strong> or
+                  <strong>long</strong>, but you will need to <strong>cast</strong> the variable from a double to an int.<br />Observe the following code:</li>
+              </ol>
+              <pre class="code">double num = 5.93323;
+int i;
+i = num;
+Console.print("i = " + i);</pre>
+
+              <p>This will cause an <strong>error</strong> since there is a <strong>possible loss of precision</strong>. Modify the code as follows:</p>
+              <pre class=code>i = (int)num;</pre>
+
+              <p>Now the code works! Notice that it doesn't round the decimals; it simply <strong>truncates</strong>. Explicit conversion can result in a loss of precision!</p>
+
+              <ol start="2">
+                <li>If you wish to round the <strong>double</strong> variable when you assign it to the <strong>int</strong> or <strong>long</strong> variable, you can use the
+                  Math.round method.<br />Observe the following code:</li>
+              </ol>
+              <pre class="code">double num = 5.93323;
+int i;
+i = Math.round(num);
+Console.print("i = " + i);</pre>
+
+              <p>This will not work since the rounding function for a double returns a LONG not an INT. Modify the code as follows:</p>
+              <pre class=code>i = (int)Math.round(num);</pre>
+
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #000; border-left: none; border-bottom: none;"><strong>int</strong> or <strong>long</strong> to
+              <strong>double</strong> <br /><br /> (Automatic or Implicit Conversion)</td>
+            <td style="border: 1px solid #000; border-left: none; border-bottom: none;"><span style="display: block;">If you have a value stored in an <strong>int</strong> or
+                <strong>long</strong> variable, simply assign it to a variable declared as type <strong>double</strong>. </span>
+
+              <pre class="code">int num = 525600;
+double d;
+d = num;
+Console.print("d = " + d);</pre>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Rounding Numbers in Java</h4>
+
+      <p>When working with floating point numbers, there is often a need to round the final answer before outputting the value to the user. There are a few different options to do this.</p>
+
+      <p>Option 1: Using <tt>Math.round()</tt>. This function will return an <tt>int</tt> or a <tt>long</tt> value that is rounded to the nearest whole number. You can use a combination of multiplication and division by powers of 10 to round to a certain number of decimal places.</p>
+
+      <p>Option 2: Use the methods in the Console class to format your values as you output them to the user. This will not change the value stored in memory, but affect how it is displayed.</p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 9: Rounding in Java - using Math.round()</h4>
+
+      <p>The Math.round() function always rounds to the nearest whole number. See below for a reminder about rounding rules:</p>
+
+      <pre class="code">
+    long answer1;
+    double answer2;
+
+    //Rounding to a whole number
+    answer1 = Math.round(204.999);
+    Console.print(answer1); // displays 205
+    answer1 = Math.round(204.499);
+    Console.print(answer1); // displays 204
+
+    //Rounding to a tenth
+    answer2 = Math.round(204.999 * 10) / 10.0;
+    Console.print(answer2); // displays 205.0
+    answer2 = Math.round(204.499 * 10) / 10.0;
+    Console.print(answer2); // displays 204.5
+  </pre>
+
+
+        <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 10: Rounding in Java - using the Console class</h4>
+
+        <p>The Console class has a few options for rounding numbers before they are displayed to the user:</p>
+
+        <pre class="code">
+    //Rounding to a whole number
+    Console.print(204.999, 0);  // displays 205
+    Console.print(204.499, 0);  // displays 204
+
+    //Rounding to a tenth
+    Console.print(204.999, 1);  // displays 205.0
+    Console.print(204.499, 1);  // displays 204.5
+
+    //Rounding within a String using roundDouble()
+    Console.print("The answer is: " + Console.roundDouble(204.499, 1));  // displays "The answer is: 204.5"
+    </pre>
+
+
+<!--
+      <h3>Evidence of Learning</h3>
+      <hr />
+      <h4 class="h4_assignment_title"><img class="icon" src="../resources/images/dropbox.gif" />Programming Exercises</h4>
+      <div class="dropbox">
+        <p>Once you have reviewed the material above complete the following. Place all code in the folder named <b>activity1</b> in your Week 1 Repl.it project</p>
+        <ol>
+
+          <li>Copy and modify the code in <strong>Example 2</strong> to show the rounding error for the <strong>float</strong> primitive data type <b>as well as double</b> (hint: you will need to do more than simply change all the &#39;double&#39; keywords to &#39;float&#39;.) How does this rounding error compare to that for the <code>double</code> type? <b>Record your observations in comments in the java file.</b> Name the program <b>RoundingError</b>.
+          </li>
+          <br />
+          <li>Create a program that prompts the user for the radius of a circle, and outputs the circumference AND the area. Use variables and constants as appropriate, and round your output to 2 decimal places. Name the program <b>CircleCalculator</b>.  Test your program with the following values for your radius:</li>
+          <table cellpadding="10" cellspacing="1" >
+            <tr>
+              <td>
+                radius = 5
+              </td>
+              <td>
+                circumference = 31.42
+              </td>
+              <td>
+                area = 78.54
+              </td>
+            </tr>
+            <tr>
+              <td>
+                radius = 7.5
+              </td>
+              <td>
+                circumference = 47.12
+              </td>
+              <td>
+                area = 176.71
+              </td>
+            </tr>
+          </table>
+          <br />
+          <li>Another procedure for calculating the date of Easter is given below and it also involves a sequence of arithmetic operations that start with the year and eventually produce a month number (3 for March, 4 for April) and the day of the month.<br />
+            <img src="images/A1EasterCalculation2.jpg" />
+            <p>Create a <strong>CalculateEasterDate</strong> program to implement this alternate algorithm.</p>
+          </li>
+          <li>BONUS: Create a <b>ThreeDigit</b> application that prompts the user for a three-digit number and then displays the sum of the three digits. You may only use primitive data types for this problem: no Strings! (hint: think of the arithmetic operators that you learned about in this activity to help you!)</li>
+        </ol>
+
+      </div>
+ -->
+    </div>
+  </body>
+
+</html>

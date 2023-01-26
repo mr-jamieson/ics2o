@@ -1,0 +1,1163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta property="og:title" content="Day 4: Strings and Arrays">
+    <title>Day 4: Strings and Arrays</title>
+    <link href="../resources/course_techno.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="header"><img alt="VA Logo" class="logo" src="../resources/images/VA%20Logo.png" />
+        <div class="courseTitle">ICS4U: Computer Science, Grade 12, University Preparation</div>
+
+        <h1>Week 1: Grade 11 Review</h1>
+
+        <h2>Activity 4: Strings and Arrays</h2>
+      </div>
+
+      <h3>Lesson Material</h3>
+      <hr />
+
+      <h4>String Class</h4>
+
+      <p>Recall: Strings in Java (a sequence of characters, such as "Hello") are not a primitive data type, instead they are a Compound, or Abstract data type (ADT). Thus, we can
+        refer to the information stored in a String variable as a <strong>String object</strong>. The String Class is included in the standard Java library, and it includes a
+        variety of methods to manipulate String objects.</p>
+
+      <p>Note that the String <tt>"1234"</tt> is not stored the same way as the integer <tt>1234</tt> and cannot be used in a numerical expression. The String <tt>"true"</tt> is
+        also stored differently from the <tt>boolean</tt> value <tt>true</tt>. Even the String <tt>"a"</tt> is stored differently that the <tt>char 'a'</tt>.</p>
+
+      <p>Every character in a String has an <strong>index</strong>, which describes its position in the String. The first character in any String has an index of 0.</p>
+
+      <p>Consider the String object <tt>"Computers are cool!"</tt>. The following table illustrates the index of each character in this String. (Note that while the String contains
+        19 characters, including spaces, they are indexed from 0 to 18)</p>
+
+      <table border=1 cellspacing=0 cellpadding=15>
+        <tbody align="center">
+          <tr>
+            <td><em>characters</em></td>
+            <td>C</td>
+            <td>o</td>
+            <td>m</td>
+            <td>p</td>
+            <td>u</td>
+            <td>t</td>
+            <td>e</td>
+            <td>r</td>
+            <td>s</td>
+            <td> </td>
+            <td>a</td>
+            <td>r</td>
+            <td>e</td>
+            <td> </td>
+            <td>c</td>
+            <td>o</td>
+            <td>o</td>
+            <td>l</td>
+            <td>!</td>
+          </tr>
+          <tr>
+            <td><em>indices</em></td>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5>Creating String Objects</h5>
+
+      <p>There are a few different ways to create a String object. You can assign a String literal to a String variable, or use the String class constructor (using the
+        <strong>new</strong> keyword).</p>
+
+      <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 1: Creating String Objects</h4>
+
+      <pre class=code>String strLiteral = "You can create a String like this";
+String strConstructor = new String("Or you can create a String like this");</pre>
+
+      <p><strong>Null String</strong>: until a String variable is assigned a value, it refers to null. Calling a method from a null String object generates a runtime error.</p>
+
+      <h5>String Methods</h5>
+
+      <p>Below is a list of common string methods that you may find useful for your programs.</p>
+
+      <table border=1 cellspacing=0 cellpadding=5>
+        <tr>
+          <td><strong>Return type</strong></td>
+          <td><strong>Method Name & Parameters</strong></td>
+          <td><strong>Description</strong></td>
+          <td><strong><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Code Examples</strong></td>
+        </tr>
+        <tr>
+          <td>int</td>
+          <td>length()</td>
+          <td>Returns an integer corresponding to the number of characters in the string</td>
+          <td>
+            <pre>String str = "Hello";
+int numberOfLetters = str.length();
+Console.print(numberOfLetters);  //output: 5</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>char</td>
+          <td>charAt(int&nbsp;index)</td>
+          <td>Returns the character at the specified index</td>
+          <td>
+            <pre>String str = "Computer";
+char letter = str.charAt(3);
+Console.print(letter);  //output: p</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>String</td>
+          <td>substring(int&nbsp;beginIndex)<br />substring(int&nbsp;beginIndex,&nbsp;int&nbsp;endIndex)</td>
+          <td>Returns a substring (a string contained within a larger string) of the string, which starts at beginIndex position and extends to the end of the string. <br />If
+            <em>endIndex</em> is specified, the substring ends one character <strong>before</strong> the endIndex position.</td>
+          <td>
+            <pre>String str = "Sacred Heart";
+
+String endOfPhrase = str.substring(7);
+Console.print(endOfPhrase);           //output: Heart
+
+String middleOfPhrase = str.substring(3, 8);
+Console.print(middleOfPhrase);        //output: red H</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>String</td>
+          <td>toLowerCase()</td>
+          <td>Returns a copy of the string with all lowercase letters</td>
+          <td>
+            <pre>String str = "Java";
+String strLower = str.toLowerCase();
+Console.print(strLower);  //output: java</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>String</td>
+          <td>toUpperCase()</td>
+          <td>Returns a copy of the string with all uppercase letters</td>
+          <td>
+            <pre>String str = "Java";
+String strUpper = str.toUpperCase();
+Console.print(strUpper);  //output: JAVA</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>int</td>
+          <td>indexOf(String&nbsp;str)<br /><br />indexOf(String&nbsp;str,&nbsp;int&nbsp;fromIndex)</td>
+          <td>Returns the integer corresponding to the location of the first occurrence of str in the string. Otherwise, -1 is returned. <br />If <em>fromIndex</em> is specified,
+            it starts the search at the specified index.</td>
+          <td>
+            <pre>String str = "here there everywhere";
+int location = str.indexOf("ere");
+Console.print(location);        //output: 1
+
+location = str.indexOf("ere", 2);
+Console.print(location);        //output: 7
+
+location = str.indexOf("ere", 8);
+Console.print(location);        //output: 18
+
+location = str.indexOf("ere", 19);
+Console.print(location);        //output: -1
+</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>int</td>
+          <td>lastIndexOf(String&nbsp;str)<br /><br />lastIndexOf(String&nbsp;str,&nbsp;int&nbsp;fromIndex)</td>
+          <td>Returns the integer corresponding to the location of the last occurrence of str in the string. Otherwise, -1 is returned. <br />If <em>fromIndex</em> is specified, it
+            starts the search at the specified index, moving from right to left (backwards).</td>
+          <td>
+            <pre>String str = "eeny meeny miny moe";
+int location = str.lastIndexOf("m");
+Console.print(location);      //output: 16
+
+location = str.lastIndexOf("m", 15)
+Console.print(location);  //output: 11
+
+location = str.lastIndexOf("m", 8);
+Console.print(location);   //output: 5
+
+location = str.lastIndexOf("m", 4);
+Console.print(location);   //output: -1
+</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>String</td>
+          <td>replace(String&nbsp;subStr,&nbsp;String&nbsp;newStr)</td>
+          <td>Searches the string for all occurrences of the substring subStr and replaces them with newStr</td>
+          <td>
+            <pre>String str = "I like programming";
+String newPhrase = str.replace("like", "love");
+Console.print(newPhrase);
+//output: I love programming</pre>
+          </td>
+        </tr>
+        <tr>
+          <td>static String</td>
+          <td>valueOf(int&nbsp;i)<br />valueOf(double&nbsp;d)<br />valueOf(boolean&nbsp;b)<br />valueOf(char&nbsp;c)</td>
+          <td>returns a String representation of the primitive type argument.<br />This is a class method, so you must include the class name (String) when you use the method</td>
+          <td>
+            <pre>String str1 = String.valueOf(12);    //str1 = "12"
+String str2 = String.valueOf(3.25);  //str2 = "3.25"
+String str3 = String.valueOf(true);  //str3 = "true"
+String str4 = String.valueOf('A');   //str4 = "A"</pre>
+          </td>
+        </tr>
+      </table>
+
+      <h5>String Comparison</h5>
+
+      <table cellpadding="5" class="picturetable" summary="This table is for formatting purposes." width="95%">
+        <tbody>
+          <tr>
+            <td>
+              <p>Recall: Another important distinction about Strings is how the relational operator <tt>==</tt> works. </p>
+
+              <p>The <tt>==</tt> operator compares the String references (the addresses of the locations of the Strings in memory) and tests them for equality, not the content of
+                the String. </p>
+
+              <p>When testing Strings (or other objects) for equalty, you should always use the <tt>equals()</tt> method.</p>
+
+            </td>
+            <th>
+              <img src="images/A2StringEquals.png" />
+
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <p>Strings should NOT be compared using relational operators such as ==, > or <. Instead, use one of these methods:</p> <table border=1 cellspacing=0 cellpadding=5>
+          <tr>
+            <td><strong>Return type</strong></td>
+            <td><strong>Method Name & Parameters</strong></td>
+            <td><strong>Description</strong></td>
+            <td><strong><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Code Examples</strong></td>
+          </tr>
+          <tr>
+            <td>boolean</td>
+            <td>equals(String&nbsp;str)</td>
+            <td>Returns true when the string is the same as str, false otherwise.</td>
+            <td>
+              <pre>String str = "ICS";
+boolean test1 = str.equals("ICS");  //test1 = true
+boolean test2 = str.equals("ics");  //test2 = false
+</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>boolean</td>
+            <td>equalsIgnoreCase(String&nbsp;str)</td>
+            <td>Same as equals() except that uppercase and lowercase differences between the strings are ignored</td>
+            <td>
+              <pre>String str = "ICS";
+boolean test1 = str.equalsIgnoreCase("ICS");    //test1 = true
+boolean test2 = str.equalsIgnoreCase("ics");    //test2 = true
+boolean test3 = str.equalsIgnoreCase("ICS3U");  //test3 = false
+</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>int</td>
+            <td>compareTo(String&nbsp;str)</td>
+            <td>Returns 0 when str is the same as the string, a <strong>negative</strong> integer is returned when str comes alphabetically <strong>after</strong> the string, and a
+              <strong>positive</strong> integer is returned when str comes <strong>before</strong>.<br />Note that uppercase and lowercase letters are considered different</td>
+            <td>
+              <pre>String str = "computer";
+Console.print(str.compareTo("apple"));    //output: 2
+Console.print(str.compareTo("windows"));  //output: -20
+Console.print(str.compareTo("Apple"));    //output: 34
+Console.print(str.compareTo("Windows"));  //output: 12
+</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>int</td>
+            <td>compareToIgnoreCase(String&nbsp;str)</td>
+            <td>Same as compareTo() expect that uppercase and lowercase differences between the strings are ignored</td>
+            <td>
+              <pre>String str = "computer";
+Console.print(str.compareTo("apple"));    //output: 2
+Console.print(str.compareTo("windows"));  //output: -20
+Console.print(str.compareTo("Apple"));    //output: 2
+Console.print(str.compareTo("Windows"));  //output: -20
+</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>boolean</td>
+            <td>startsWith(String&nbsp;str)</td>
+            <td>Returns true when the string begins with str, false otherwise. Case sensitive.</td>
+            <td>
+              <pre>String str = "Computer Science";
+boolean test1 = str.startsWith("Comp");  //test1 = true
+boolean test2 = str.startsWith("comp");  //test2 = false
+</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>boolean</td>
+            <td>endsWith(String&nbsp;str)</td>
+            <td>Returns true when the string ends with str, false otherwise. Case sensitive.</td>
+            <td>
+              <pre>String str = "Computer Science";
+boolean test1 = str.endsWith("Science");  //test1 = true
+boolean test2 = str.endsWith("science");  //test2 = false
+</pre>
+            </td>
+          </tr>
+          </table>
+          <br />
+          <table class="externallink">
+            <tbody>
+              <tr>
+                <th><img class="icon" src="../resources/images/external_links.gif" alt="external link icon" /></th>
+                <td>
+                  <p>While this may seem like a LOT of methods, there are many more methods available to manipulate strings in Java! <br />For a full list of all methods, consult
+                    the <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html" target="_blank">Java String API</a>.</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h4>Wrapper Classes</h4>
+
+          <p>The primitive data types used most often in our programs so far are: <tt>int</tt>, <tt>double</tt>, <tt>boolean</tt> & <tt>char</tt>. Java also provides
+            <strong>wrapper classes</strong> for primitive data types, which provide methods for converting back and forth between primitive types and objects, and other helpful
+            functions. The wrapper classes for the primitive types listed above are <tt>Integer</tt>, <tt>Double</tt>, <tt>Boolean</tt>, and <tt>Character</tt>.</p>
+
+          <p>Note: All methods shown in this table are static methods - you must use the class name when calling the method.</p>
+
+          <table border=1 cellspacing=0 cellpadding=5>
+            <tr>
+              <td><strong>Wrapper Class</strong></td>
+              <td><strong>Return type</strong></td>
+              <td><strong>Method Name & Parameters</strong></td>
+              <td><strong>Description</strong></td>
+              <td><strong><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Code Examples</strong></td>
+            </tr>
+
+            <tr>
+              <td>Integer</td>
+              <td>int</td>
+              <td>parseInt(String&nbsp;str)</td>
+              <td>returns an <tt>int</tt> equivalent to str. If str is not an integer, a runtime error occurs</td>
+              <td>
+                <pre>int i = Integer.parseInt("25");  //i = 25</pre>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Double</td>
+              <td>double</td>
+              <td>parseDouble(String&nbsp;str)</td>
+              <td>returns a <tt>double</tt> equivalent to str. If str is not a number, a runtime error occurs</td>
+              <td>
+                <pre>double d = Double.parseDouble("5.75");  //d = 5.75</pre>
+              </td>
+            </tr>
+
+            <tr>
+              <td>Boolean</td>
+              <td>boolean</td>
+              <td>parseBoolean(String&nbsp;str)</td>
+              <td>returns a <tt>boolean</tt> equivalent to str.</td>
+              <td>
+                <pre>boolean b = Boolean.parseBoolean("false");  //b = false</pre>
+              </td>
+            </tr>
+
+            <tr>
+              <td rowspan=3>Character</td>
+              <td>int</td>
+              <td>getNumericValue(char&nbsp;c)</td>
+              <td>returns the <tt>int</tt> value that c represents. Returns -1 if c has no numeric value.</td>
+              <td>
+                <pre>int digit = Character.getNumericValue('7');  //digit = 7</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>boolean</td>
+              <td>isLetter(char&nbsp;c)<br />isDigit(char&nbsp;c)<br />isUpperCase(char&nbsp;c)<br />isLowerCase(char&nbsp;c)</td>
+              <td>returns a <tt>boolean</tt> to indicate whether the specified <tt>char</tt> value is a letter, a digit, an uppercase letter, or a lowercase letter, respectively.
+              </td>
+              <td>
+                <pre>boolean test1 = Character.isLetter('z');     //test1 = true
+boolean test2 = Character.isDigit('#');      //test2 = false
+boolean test3 = Character.isUpperCase('A');  //test3 = true
+boolean test4 = Character.isLowerCase('6');  //test4 = false</pre>
+              </td>
+            </tr>
+            <tr>
+              <td>char</td>
+              <td>toUpperCase(char&nbsp;c)<br />toLowerCase(char&nbsp;c)</td>
+              <td>returns the uppercase or lowercase form of the specified <tt>char</tt> value.</td>
+              <td>
+                <pre>Console.print(Character.toUpperCase('f'));  //output: F
+Console.print(Character.toLowerCase('G'));  //output: g</pre>
+              </td>
+            </tr>
+
+          </table>
+
+          <br />
+          <hr />
+
+          <h4>Arrays</h4>
+
+          <p>An <strong>array</strong> is a special type of variable that allows you to store multiple values in a single data structure. It is also a series of numbered memory
+            locations with a shared variable name.</p>
+
+          <p>An array is a programming element that acts as a container for a list of items (such as a list of grades.) The items in an array are usually the same data type (or
+            conected through an inheritance hierarchy - a concept will we see later!) Java supports a type of array called an indexed array. </p>
+
+          <ul>
+            <li>Arrays have a <strong>fixed length</strong></li>
+            <li>The individual items in an array are known as the array's <strong>elements</strong>.</li>
+            <li>Each element is stored in a numbered slot known as an <strong>index</strong></li>
+            <ul>
+              <li>Elements are accessed using the index (an unsigned integer value) like an address</li>
+              <li>The first index is always the number 0, and the index increments by 1 for each subsequent element in the array</li>
+            </ul>
+          </ul>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 3 - Why use Arrays?</h4>
+
+          <ul>
+            <li>You are working as a computer programmer for a school board and have been assigned the task of writing a program to help teachers organize their marks.</li>
+            <li>The first program task is to store and list student names.</li>
+            <li>If you have to assign a variable name for each student, you could be working on this part of the program for a very long time.</li>
+            <li>As an alternative, you could set up an array.</li>
+          </ul>
+
+          <p><strong>Method 1 - Declare, Initialize, and List Values Using Variables</strong></p>
+
+          <pre class="code">
+    String student0 = &quot;Lisa&quot;;
+    String student1 = &quot;Maggie&quot;;
+    String student2 = &quot;Todd&quot;;
+    String student3 = &quot;Rod&quot;;
+    String student4 = &quot;Milhouse&quot;;
+    String student5 = &quot;Tom&quot;;
+    String student6 = &quot;Jerry&quot;;
+    String student7 = &quot;Bob&quot;;
+    String student8 = &quot;Billy&quot;;
+    String student9 = &quot;Suzie&quot;;
+    String student10 = &quot;Brittany&quot;;
+    String student11 = &quot;Alyssa&quot;;
+    String student12 = &quot;Brandy&quot;;
+    String student13 = &quot;Andrew&quot;;
+    String student14 = &quot;Tim&quot;;
+    String student15 = &quot;Sam&quot;;
+    String student16 = &quot;Sarah&quot;;
+    String student17 = &quot;Alex&quot;;
+    String student18 = &quot;Molly&quot;;
+    String student19 = &quot;Adam&quot;;
+
+    Console.print(student0);
+    Console.print (student1);
+    Console.print (student2);
+    Console.print (student3);
+    Console.print (student4);
+    Console.print (student5);
+    Console.print (student6);
+    Console.print (student7);
+    Console.print (student8);
+    Console.print (student9);
+    Console.print (student10);
+    Console.print (student11);
+    Console.print (student12);
+    Console.print (student13);
+    Console.print (student14);
+    Console.print (student15);
+    Console.print (student16);
+    Console.print (student17);
+    Console.print (student18);
+    Console.print (student19);</pre>
+
+          <p><strong>Method 2 - Declare, Initialize and List Values Using an Array </strong></p>
+
+          <pre class="code">
+    String[] students = { &quot;Lisa&quot;, &quot;Maggie&quot;, &quot;Todd&quot;, &quot;Rod&quot;, &quot;Milhouse&quot;, &quot;Tom&quot;, &quot;Jerry&quot;, &quot;Bob&quot;, &quot;Billy&quot;, &quot;Suzie&quot;,
+      &quot;Brittany&quot;, &quot;Alyssa&quot;, &quot;Brandy&quot;, &quot;Andrew&quot;, &quot;Tim&quot;, &quot;Sam&quot;, &quot;Sarah&quot;, &quot;Alex&quot;, &quot;Molly&quot;, &quot;Adam&quot; };
+
+    for (int i = 0; i &lt; students.length; i++) {
+      Console.print(students[i]);
+    }</pre>
+
+          <p>Arrays help you to make organized, orderly collections of data quickly. You can see from the example above how the use of an array made the program code much easier to
+            use and read.</p>
+
+
+          <h5>Creating Arrays</h5>
+
+          <p>There are two general forms for declaring arrays. Note that <em>elementType</em> can be any primitive type (int, double, boolean, char) or class (String, Wrapper
+            class, user-defined classes).</p>
+          <pre><em>elementType</em>[] <em>arrayName</em> = <strong>new</strong> <em>elementType</em>[<em>size</em>];
+<em>elementType</em>[] <em>arrayName</em> = {<em>list-of-values</em>};</pre>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 4: Creating Arrays</h4>
+
+          <p>The following code shows you three possible ways to create various arrays of different data types. The first two methods use they keyword "new", which tell the
+            compiler to allocate new memory for the array. The last method uses an array literal, which is the list of values that the array will contain.</p>
+          <pre class=code>int[] grades = new int[5];
+String[] names = new String[5];
+boolean[] isImmersion = new boolean[5];
+</pre>
+          or
+          <pre class=code>int[] grades = new int[Console.readInt("How many grades are you entering?")];
+String[] names = new String[Console.readInt("How many student names are you entering?")];
+boolean[] isImmersion = new boolean[Console.readInt("How many French program choices are you entering?")];</pre>
+          or
+          <pre class=code>int[] grades = {99, 62, 87, 83, 70, 76};
+String[] names = {"Ada", "Barbara", "Charles", "David"};
+boolean[] isImmersion = {true, false, false, true, true, true};</pre>
+
+          <p>The first set of array declarations shown above contain 5 elements. The number of elements in the second set of arrays is determined at runtime, while the number of
+            elements in the third set depends on the number of items in the list. Since Java stores an array in consecutive storage locations in main memory (RAM) we can visualize
+            the third <tt>grades</tt> array as follows: </p>
+
+          <table border="1" cellspacing=0 cellpadding="10">
+            <tbody align="center">
+              <tr>
+                <td>99</td>
+                <td>62</td>
+                <td>87</td>
+                <td>83</td>
+                <td>70</td>
+                <td>76</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h5>Using Arrays</h5>
+
+          <p>To process the data stored in an array, we must be able to access its individual elements. We access an array element by the array name (a variable) and the array
+            index (a non-negative integer) enclosed in square brackets (e.g., grades[3]).</p>
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img src="../resources/images/did_you_know.gif" alt="Did you know icon" title="Did you know icon" /></th>
+                <td>
+                  <p><b>Array Indices</b></p>
+                  <ul>
+                    <li>In Java (and many other languages) the <strong>first</strong> element of an array has index <strong>0</strong>, not 1.</li>
+                    <li>This makes the <strong>last</strong> element of the array to have an index equal to <strong>arrayName.length - 1</strong>.</li>
+
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Since the array in the previous example has 6 elements, we use indices 0 through 5 to reference each element of the grades array.</p>
+
+          <table cellpadding="2">
+            <tbody align="center">
+              <tr>
+                <td><em>indices</em></td>
+                <td>
+                  <table cellspacing=2 cellpadding="10">
+                    <tr>
+                      <td>[0]</td>
+                      <td>[1]</td>
+                      <td>[2]</td>
+                      <td>[3]</td>
+                      <td>[4]</td>
+                      <td>[5]</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>
+                  <table border="1" cellspacing=0 cellpadding="10">
+                    <tr>
+                      <td>99</td>
+                      <td>62</td>
+                      <td>87</td>
+                      <td>83</td>
+                      <td>70</td>
+                      <td>76</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>The index can either be a non-negative integer or an integer expression. An array variable followed by an index in square brackets is referred to as an <strong>indexed
+              variable</strong>. And indexed variable has the same data type as the array element it references, and can be used in the same way that a regular variable is used.
+          </p>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 5: Accessing an Array Element</h4>
+
+          <pre class="code">int[] grades = {99, 62, 87, 83, 70, 76};
+
+Console.print(grades[2]);	//displays 87
+grades[2] = grades[4] + 10;	//changes 87 to 80 (70 + 10)
+grades[6] = 75;			//runtime error - past the bounds of the array</pre>
+
+          <p>To access all of the elements in an array, a for loop is used to go through the array one element at a time. The counter variable i is also used as the array index.
+          </p>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 6: Accessing all Array Elements</h4>
+
+          <pre class="code">for (int i = 0; i < grades.length; i++) {
+    Console.print(grades[i]);
+}</pre>
+
+          <table class="didyouknow">
+            <tbody>
+              <tr>
+                <th><img src="../resources/images/tips.gif" /></th>
+                <td>
+                  <ul>
+                    <li>A <strong>for loop</strong> is often used to access array elements because the loop control variable can be used as the array index.</li>
+                    <li>The initial value of the for loop is set to 0 to access the first array element.</li>
+                    <li>The <strong>length property</strong> (e.g., grades.length) of the array is used to count the number of elements that have been stored in the array.</li>
+                    <li>The loop iterates from 0 to one less than the length of the array because length is a count of the elements, not the greatest index value.</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <h4><img alt="Questions Icon" border="0" height="42" src="../resources/images/question.gif" width="42" /> Check Your Understanding</h4>
+
+          <div class="questions">
+            <ol>
+              <li>Write programming statements to complete the following:
+                <ul>
+                  <li>Declare and initialize an array to store the names of five different types of fruit.</li>
+                  <li>Use a for loop to list the elements of the array in reverse order (starting with the element with the highest index number), and ending with the element
+                    stored
+                    with an index of 0.</li>
+                </ul>
+              </li>
+            </ol>
+            <a href="answers/A4answer_1.html" target="_blank"><img alt="Answer Button" border="0" src="../resources/images/answer_english.gif" /> Answer</a>
+          </div>
+
+          <h5>Arrays with Meaningful Indexes</h5>
+
+          <p>Many algorithms make use of the index value of an array element for simplifying the storage and retrieval of data</p>
+          <p>For example, a testScores array with 101 elements indexed from 0 to 100 could store a count of all the scores of 90 in the element with index 90, the count of scores
+            82
+            in element 82, and so on. </p>
+          <p>You will use an array like this in the programming exercises for this activity.</p>
+
+          <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 7: Calculating Averages with Arrays</h4>
+
+          <p>Below is a program that stores student grades in an array and calculates the class average.</p>
+
+          <pre class="code">/**
+ * Calculates the average (mean) of grades entered by the user, using an array of integers
+ */
+package activity4;
+import simpleIO.Console;
+
+public class GradesAverage {
+
+    public static void main(String[] args) {
+
+        // Input
+        Console.print("Welcome the Grade Average program");
+        int[] grades = new int[Console.readInt("How many grades are you entering?")];
+
+        //using an offset counter for readability (user will see grades numbered 1 to 5)
+        for (int i = 0; i < grades.length; i++) {
+            grades[i] = Console.readInt("Enter grade #" + (i + 1) + ": ");
+        }
+
+        // Processing
+        double gradeAvg = calculateAverage(grades);
+
+        // Output
+        Console.print("The average of your grades is: " + Console.roundDouble(gradeAvg, 1));
+    }
+
+    public static double calculateAverage(int[] grades) {
+
+        int total = 0;		//accumulator
+
+        // add up all the grades, using the accumulator total
+        for (int i = 0; i < grades.length; i++) {
+            total += grades[i];
+        }
+
+        // cast to double to ensure real division
+        double gradeAvg = (double) total / grades.length;
+
+        return gradeAvg;
+    }
+}</pre>
+
+
+          <h5>Strings and Arrays</h5>
+
+          <p>You may have noticed some similarities between working with Strings and working with arrays. You can create a String from an array of characters (primitive type char),
+            using the String constructor:</p>
+
+          <pre>char[] charArray = {'P', 'r', 'o', 'g', 'r', 'a', 'm', 'm', 'i', 'n', 'g'};
+String str = new String(charArray); // str = "Programming"</pre>
+
+          <p>There are also some String methods that return arrays to help work with the different parts of a larger String.
+
+            <table border=1 cellspacing=0 cellpadding=5>
+              <tr>
+                <td><strong>Return type</strong></td>
+                <td><strong>Method Name & Parameters</strong></td>
+                <td><strong>Description</strong></td>
+                <td><strong><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Code Examples</strong></td>
+              </tr>
+              <tr>
+                <td>char[]</td>
+                <td>toCharArray()</td>
+                <td>Returns a new character array containing the characters in the string</td>
+                <td>
+                  <pre>String str = "IBM";
+char[] myArray = str.toCharArray();
+//myArray[0] = 'I', myArray[1] = 'B', myArray[2] = 'M'</pre>
+                </td>
+              </tr>
+
+              <tr>
+                <td>String&nbsp;[]</td>
+                <td>split(String&nbsp;regex)</td>
+                <td>Splits the string around matches of regex into an array of strings</td>
+                <td>
+                  <pre>String str = "I like Java";
+String[] myArray = str.split(" ");
+//myArray[0] = "I", myArray[1] = "like", myArray[2] = "Java"</pre>
+                </td>
+              </tr>
+            </table>
+
+            <h5>Methods using Arrays</h5>
+            <p>You can pass arrays as parameters into methods. Ensure that you are using the square brackets in the method header when you accept the array as an argument. In fact,
+              all of the applications you have created in this course have accepted an array of String[] as an argument - it is part of the main() method header!</p>
+            <p>One important way that arrays differ from regular variables in Java is that they are passed <strong>by reference</strong> into methods. This means that the storage
+              location of the array in RAM is given to the method, and <strong>it is possible to alter the original array!</strong></p>
+            <p>This does not happen with regular variables, since they are passed <strong>by value</strong>, which means only the value of the variable (the number or text the
+              variable contains) is given to the method.</p>
+
+            <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 8: Passing by Reference, Passing by Value</h4>
+
+            <p>The Java application below illustrates the difference between passing by reference and passing by value. The output of the program is displayed below the code</p>
+
+            <pre class="code">/**
+ * Illustrates the difference between passing by reference and passing by value
+ */
+package activity4;
+import simpleIO.Console;
+
+public class Customer {
+
+    public static void main(String[] args) {
+
+        /*
+         * Pass by Reference - using String[] array
+         */
+
+        String[] customerNames = { "Anna", "Billy", "Cindy", "David", "Evan" };
+
+        Console.print("Pass by reference: values *before* method call");
+        for (int i = 0; i < customerNames.length; i++) {
+            Console.print(customerNames[i]);
+        }
+
+        passByReference(customerNames);
+
+        Console.print("\nPass by reference: values *after* method call");
+        for (int i = 0; i < customerNames.length; i++) {
+            Console.print(customerNames[i]);
+        }
+
+        /*
+         * Pass by Value - using String variable
+         */
+
+        String singleName = "Alexander";
+
+        Console.print("\nPass by value: value *before* method call");
+        Console.print(singleName);
+
+        passByValue(singleName);
+
+        Console.print("\nPass by value: value *after* method call");
+        Console.print(singleName);
+    }
+
+    public static void passByReference(String[] names) {
+        names[0] = "Angela";
+        names[2] = "Cameron";
+        names[4] = "Elizabeth";
+
+        Console.print("\nPass by reference: values *inside* method call");
+        for (int i = 0; i < names.length; i++) {
+            Console.print(names[i]);
+        }
+    }
+
+    public static void passByValue(String name) {
+        name = "Abigail";
+
+        Console.print("\nPass by value: value *inside* method call");
+        Console.print(name);
+    }
+
+}</pre>
+
+            <p>Output: </p>
+
+            <table class="picturetable" width="70%" cellpadding="5">
+              <tbody>
+                <tr>
+                  <th>
+                    <p><img src="images/A4Output.jpg" /></p>
+                  </th>
+                  <td>
+                    <p>Notice that the first method actually changes the first, third and fifth elements of the String[] array, both inside the method and after the method call.
+                    </p>
+                    <p>However, the second method does not change the value of the String variable; it is temporarily modified inside the method, but is unchanged after the method
+                      call.</p>
+                  </td>
+
+                </tr>
+              </tbody>
+            </table>
+
+            <br />
+            <hr />
+            <h3>Case Studies</h3>
+
+            <p>Each of the following case studies illustrates how a programmer could use the concepts taught so far to create interesting programs. For each case study
+              presented here, a brief description of what the program should do is provided, as well as a listing of methods. The source code is provided in full. Students are
+              encourage
+              to try running the program in their development environments to further their understanding.</p>
+
+            <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 9: Math Quiz</h4>
+
+            <p>A game that allows the player to practice their math skills</p>
+
+            <h5>Program description</h5>
+            <ul>
+              <li>Computer will generate 10 addition questions, using numbers between 1 and 20</li>
+              <li>Users gets 3 points for each correct answer</li>
+              <li>If a user answers incorrectly, they get a second chance, worth 1 point</li>
+              <li>After the 2nd incorrect answer the program moves on to the next question</li>
+            </ul>
+
+            <h5> Method headers</h5>
+
+            <pre>public static int askQuestion(int num1, int num2);</pre>
+            <p>Displays a question for the user. The method returns the score the user has earned (3 for 1st try, 1 for 2nd try, 0 if incorrect after 2 tries).</p>
+
+            <pre>private static int randomNumber(int a, int b);</pre>
+            <p>Returns a pseudo-random number between a and b inclusive (may include a and b).</p>
+
+            <h5>Source code</h5>
+            <pre class="code">package activity4;
+import simpleIO.Console;
+
+/**
+ * This application allows the user to practice their math skills
+ */
+public class MathQuiz {
+
+    public static void main(String[] args) {
+
+        // Constants
+        final int LOW_NUM = 1;
+        final int HIGH_NUM = 20;
+
+        // Variables
+        int userScore = 0;
+
+        //Input
+        Console.print("Welcome to Math Quiz");
+        int numQuestions = Console.readInt("How many addition questions would you like to do today?");
+
+        //Processing
+        for (int i = 0; i < numQuestions; i++) {
+            // get the two numbers for the question
+            int firstNumber = randomNumber(LOW_NUM, HIGH_NUM);
+            int secondNumber = randomNumber(LOW_NUM, HIGH_NUM);
+
+            //print question number for user to see their progress
+            Console.print("\nQ" + (i + 1) + " ", false);
+
+            // ask the question and track the score
+            userScore += askQuestion(firstNumber, secondNumber);
+        }
+
+        //Output
+        Console.print("\nDone! Your score is: " + userScore);
+    }
+
+    // This method asks the user a question and returns how they score (3 points for
+    // correct on 1st try, 1 for correct on 2nd try)
+    public static int askQuestion(int num1, int num2) {
+
+        int score;
+
+        // Prompt user with addition question
+        int answer = Console.readInt("What is " + num1 + " + " + num2 + "?");
+
+        // check their answer
+        if (answer == num1 + num2) {
+            Console.print("Correct!");
+            score = 3;
+        } else {
+            // user gets a second chance
+            answer = Console.readInt("Incorrect. Try again: ");
+
+            if (answer == num1 + num2) {
+                Console.print("Correct.");
+                // reduced score on 2nd try
+                score = 1;
+            } else {
+                Console.print("Sorry, the correct answer is: " + (num1 + num2));
+                // no points given
+                score = 0;
+            }
+        }
+        return score;
+    }
+
+    // This method will return a random number between a and b, inclusive
+    private static int randomNumber(int a, int b) {
+        // identify the max and min arguments
+        int highNum = Math.max(a, b);
+        int lowNum = Math.min(a, b);
+        int range = highNum - lowNum + 1;
+        return (int) (Math.random() * range) + lowNum;
+    }
+
+}
+</pre>
+
+
+            <hr />
+            <h4><img alt="Example Icon" class="icon" src="../resources/images/example.gif" /> Example 10: Word Guess</h4>
+
+            <p>A game that allows the player to guess the letters of a secret word, similar to hang man. As the user guesses the correct letters, dashes are replaced with the
+              letters</p>
+
+            <h5>Program description</h5>
+            <ul>
+              <li>Computer plays a single player</li>
+              <li>Secret word is TECHNOLOGY, game starts with 10 dashes ----------
+              <li>When a matching letter is guessed, it replaces the corresponding dash</li>
+              <li>Uppercase or lowercase can be entered, only uppercase displayed</li>
+              <li>If the player enters an exclamation point (!), they can guess a word and WIN or LOSE</li>
+              <li>Or the player can continue to guess letters until word is revealed</li>
+              <li>At the end, the player is shown the total number of guesses</li>
+            </ul>
+
+            <h5> Method headers</h5>
+
+            <pre>public static String updateWord(char letterGuess, String wordSoFar);</pre>
+            <p>determines which dashes should be replaced by letters for display on the screen to show user progress</p>
+
+            <h5>Source code</h5>
+
+            <pre class="code">package activity4;
+import simpleIO.Console;
+
+/**
+ * This application simulates a simple word guessing game
+ */
+
+public class WordGuess {
+
+    //Constants
+    static final String SECRET_WORD = "TECHNOLOGY";
+    static final char FLAG = '!';
+
+    public static void main(String[] args) {
+
+        //Variables
+        String wordSoFar = "", wordGuess = "";
+        char letterGuess;
+        int numGuesses = 0;
+
+        Console.print("Welcome to Word Guess");
+
+        //create the word to display to the screen, with each letter replaced by a dash
+        for (int i = 0; i < SECRET_WORD.length(); i++) {
+            wordSoFar += '-';
+        }
+
+        do {
+            //print word (mix of dashes and letters) to the screen
+            Console.print("\n" + wordSoFar);
+
+            //get a guess from the user
+            letterGuess = Console.readChar("Enter a letter (" + FLAG + " to guess entire word)");
+
+            //Keep track of number of guesses user needed - this counts both correct & incorrect guesses,
+            //as well as the option to guess the entire word
+            numGuesses++;
+
+            //update the word to be printed to the screen
+            wordSoFar = updateWord(letterGuess, wordSoFar);
+
+            //continue looping until they either choose to guess, or the word is fully revealed
+        } while (letterGuess != FLAG && !wordSoFar.equals(SECRET_WORD));
+
+        if (letterGuess == FLAG) {
+            wordGuess = Console.readString("You want to guess the word! What is your guess?");
+        }
+
+        //user can win be either guessing the word, or getting all the letters
+        if (SECRET_WORD.equalsIgnoreCase(wordGuess) || SECRET_WORD.equals(wordSoFar)) {
+            Console.print("You win!");
+        } else {
+            Console.print("You lose");
+        }
+
+        //Final output to screen
+        Console.print("The secret word is " + SECRET_WORD);
+        Console.print("You made " + numGuesses + " guesses.");
+
+    }
+
+    public static String updateWord(char letterGuess, String wordSoFar) {
+
+        // start looking at position 0
+        int beginSearch = 0;
+
+        //Convert guess to uppercase
+        letterGuess = Character.toUpperCase(letterGuess);
+
+        //Check if this letter is actually in the word
+        while (SECRET_WORD.indexOf(letterGuess, beginSearch) >= 0) {
+            // save the location of the found letter
+            int index = SECRET_WORD.indexOf(letterGuess, beginSearch);
+
+            // extract string in wordSoFar up to the letter guessed
+            String updatedWord = wordSoFar.substring(0, index);
+            // append guessed letter to that string.
+            updatedWord += letterGuess;
+            // extract rest of wordSoFar and append after the guessed letter
+            updatedWord += wordSoFar.substring(index + 1, wordSoFar.length());
+
+            // update the word
+            wordSoFar = updatedWord;
+
+            // continue to check for more of the same letter
+            beginSearch = index + 1;
+        }
+
+        return wordSoFar;
+
+    }
+
+}</pre>
+
+            <!-- <h3>Evidence of Learning</h3>
+
+            <hr />
+            <h4 class="h4_assignment_title"><img class="icon" src="../resources/images/dropbox.gif" />Programming Exercises</h4>
+
+            <div class="dropbox">
+              <p>Once you have reviewed the material above complete the following. Place all code in the folder named <b>activity4</b> in your Week 1 Repl.it project</p>
+              <ol>
+                <li>Create a <strong>WordRectangle</strong> application that prompts the user for a word, then uses the letters of the word to form the shape of a rectangle. Shift
+                  the letters of the word to the <em>left</em> one position on each line, and place the first letter at the end. <br />
+                  For example, the word rectangle for ICS4U would be:
+                  <pre>ICS4U
+CS4UI
+S4UIC
+4UICS
+UICS4</pre>
+
+                </li><br />
+
+                <li>Create a <b>WordSorter</b> application that will prompt the user for three words, then it will output the words in alphabetical order, and again in reverse
+                  alphabetical order.</li><br />
+
+                <li> Modify the <strong>GradesArray</strong> application from the lesson to determine the minimum, maximum, and range (max - min) of the grades entered. Add the
+                  following methods to the application:</li>
+                <ul>
+                  <tt><strong>
+                      <li>public static int getMin(int[] grades)</li>
+                      <li>public static int getMax(int[] grades)</li>
+                      <li>public static int calculateRange(int[] grades)</li>
+                    </strong></tt>
+                </ul>
+                <p>You must process the array elements yourself - do not use helper methods from other classes!</p>
+
+                <li>
+                  <p>The <em>Sieve of Eratosthenes</em> is the name given to an algorithm for finding prime numbers. A prime number is a whole number greater than one that has no
+                    exact divisors except one and the number itself. The sieve starts by considering all numbers greater than one as possible primes. </p>
+
+                  <table cellpadding="6" cellspacing="0" summary="This table is for formatting purposes.">
+                    <tbody>
+                      <tr>
+                        <td><img alt="This is a cartoon of the number five." class="middle" src="images/A4CartoonFive.gif" /></td>
+                        <td>
+                          <ul>
+                            <li>2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 &hellip;</li>
+                            <p>The first number in the list &ndash; two - must be prime, but all multiples of two cannot be prime and, hence, can be eliminated from the list.</p>
+                            <li>2 3 <del>4</del> 5 <del>6</del> 7 <del>8</del> 9 <del>10</del> 11 <del>12</del> 13 <del>14</del> 15 <del>16</del> 17 <del>18</del> 19 &hellip;</li>
+                            <p>The next number still in the list &ndash; three - must also be prime, since it was not eliminated. All of the multiples of three can be eliminated
+                              from the list.
+                            </p>
+                            <li>2 3 <del>4</del> 5 <del>6</del> 7 <del>8</del> <del>9</del> <del>10</del> 11 <del>12</del> 13 <del>14</del> <del>15</del> <del>16</del> 17
+                              <del>18</del> 19 &hellip;</li>
+                          </ul>
+
+                          <p>In the algorithm, the process continues, eliminating multiples of five, seven, eleven, and so on, until it is no longer possible to eliminate any
+                            multiples of values left in the list.</p>
+                        </td>
+                        <td><img alt="This is a cartoon of the number seven." class="middle" src="images/A4CartoonSeven.gif" /> </td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <p>Describe this algorithm using a <b>flowchart</b>. Make sure you use the correct syntax and formatting!</p>
+
+                  <p>Write an <strong>Eratosthenes</strong> application to implement <em>Eratosthenes&#39; Sieve</em> to determine all of the prime numbers up to 1000 (or another
+                    number entered by the user). <br /><em>You should NOT use the modulus operator in your program - find a more efficient way!</em></p>
+
+                  <p>Your code MUST use an array of booleans to accomplish this task. Consider how this array would help you implement the sieve of Eratosthenes for primes up to
+                    1000: </p>
+
+                  <pre class=code>boolean isPrime[] = new boolean[1001];</pre>
+                </li>
+
+              </ol>
+
+            </div> -->
+    </div>
+  </body>
+
+</html>
